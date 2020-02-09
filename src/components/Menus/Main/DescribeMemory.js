@@ -1,32 +1,14 @@
 import React from 'react';
-import {
-	View,
-	Text,
-	TextInput,
-	StyleSheet,
-	TouchableOpacity,
-} from 'react-native';
+import {View, TextInput, StyleSheet} from 'react-native';
 
 export default class DescribeMemory extends React.Component {
-	constructor() {
-		super();
-
-		this.state = {
-			memoryDescription: '',
-		};
-
-		this.updateText = this.updateText.bind(this);
-	}
-	updateText(text) {
-		this.setState({memoryDescription: text});
-	}
 	render() {
 		return (
 			<View>
 				<TextInput
 					style={styles.memoryinput}
-					onChangeText={text => this.updateText(text)}
-					value={this.state.memoryDescription}
+					onChangeText={this.props.entryUpdate}
+					value={this.props.entryValue}
 					placeholder="Write a little entry about today."
 					multiline={true}
 				/>

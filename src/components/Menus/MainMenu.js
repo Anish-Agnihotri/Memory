@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import moment from 'moment';
 
 import MemoryHeader from './Main/MemoryHeader';
 import DescribeMemory from './Main/DescribeMemory';
@@ -9,9 +8,7 @@ import SpecialMemory from './Main/SpecialMemory';
 import MenuButton from '../Buttons/MenuButton';
 
 /*
-	TODO: Update date picker
 	TODO: Photo selection
-	TODO: Save text to memory
 	TODO: Emotion menu
 */
 
@@ -20,26 +17,36 @@ export default class MainMenu extends React.Component {
 		super();
 
 		this.state = {
-			memory: {
-				date: moment().format,
-				entry: '',
-				photo: '',
-				isSpecial: true,
-				emotion: '',
-			},
+			date: new Date(),
+			entry: '',
+			photo: '',
+			isSpecial: true,
+			emotion: '',
 		};
 	}
+	entryUpdate = value => {
+		this.setState({entry: value});
+	};
 	toggleSpecial = value => {
-		this.setState({memory: {isSpecial: value}});
+		this.setState({isSpecial: value});
+	};
+	handleDateChange = value => {
+		this.setState({date: value});
 	};
 	render() {
 		return (
 			<View style={styles.menuview}>
-				<MemoryHeader date={this.state.memory.date} />
-				<DescribeMemory />
+				<MemoryHeader
+					date={this.state.date}
+					dateUpdate={this.handleDateChange}
+				/>
+				<DescribeMemory
+					entryValue={this.state.entry}
+					entryUpdate={this.entryUpdate}
+				/>
 				<AddPhoto />
 				<SpecialMemory
-					toggleValue={this.state.memory.isSpecial}
+					toggleValue={this.state.isSpecial}
 					onToggle={this.toggleSpecial}
 				/>
 				<MenuButton text="Continue" />
