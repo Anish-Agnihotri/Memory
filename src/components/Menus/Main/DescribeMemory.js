@@ -9,8 +9,9 @@ export default class DescribeMemory extends React.Component {
 					style={styles.memoryinput}
 					onChangeText={this.props.entryUpdate}
 					value={this.props.entryValue}
-					placeholder="Write a little entry about today."
+					placeholder="Write a short diary entry (<240 chars)"
 					multiline={true}
+					maxLength={240}
 				/>
 			</View>
 		);

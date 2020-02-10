@@ -17,7 +17,6 @@ export default class PlusButton extends React.Component {
     super();
 
     this.state = {
-      modal: false,
       animatedValue: new Animated.Value(0),
       animatedSecondValue: new Animated.Value(0),
       bottomValue: new Animated.Value(0),
@@ -31,10 +30,10 @@ export default class PlusButton extends React.Component {
   }
 
   toggleModal() {
-    if (this.state.modal === true) {
+    if (this.props.modal === true) {
       this.handleSecondAnimation();
     }
-    this.setState(previous => ({modal: !previous.modal}));
+    this.props.toggleModal();
   }
 
   togglePressed() {
@@ -96,7 +95,7 @@ export default class PlusButton extends React.Component {
     return (
       <>
         <Modal
-          isVisible={this.state.modal}
+          isVisible={this.props.modal}
           style={styles.menu}
           backdropTransitionOutTiming={0}
           hideModalContentWhileAnimating={true}
@@ -111,15 +110,16 @@ export default class PlusButton extends React.Component {
             height: 60,
             borderRadius: 50,
             backgroundColor: '#167CE6',
+            alignSelf: 'center',
             shadowOffset: {width: 0, height: 2},
             shadowColor: '#000',
             shadowOpacity: 0.5,
             position: 'absolute',
             bottom: 35,
             transform: [
-              {scaleX: this.state.modal ? scaleReverse : scale},
-              {scaleY: this.state.modal ? scaleReverse : scale},
-              {translateY: this.state.modal ? moveReverse : move},
+              {scaleX: this.props.modal ? scaleReverse : scale},
+              {scaleY: this.props.modal ? scaleReverse : scale},
+              {translateY: this.props.modal ? moveReverse : move},
             ],
           }}
           onPressIn={this.togglePressed}
