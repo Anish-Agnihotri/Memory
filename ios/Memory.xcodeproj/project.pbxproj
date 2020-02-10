@@ -17,9 +17,11 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* MemoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MemoryTests.m */; };
 		33B7F1179996E81BDEE6A7C8 /* libPods-Memory-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3AB32932B27E498E595B5D /* libPods-Memory-tvOSTests.a */; };
+		49242D7923F0DFB200B17723 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49242D7823F0DFB200B17723 /* File.swift */; };
 		61AFAC1C43EDD104AF2FF73E /* libPods-Memory-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39D8A410EBC07F5822F4FD51 /* libPods-Memory-tvOS.a */; };
 		887B63AA00735126D7EBF5E4 /* libPods-MemoryTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2089ECAFD71CE083923A3C71 /* libPods-MemoryTests.a */; };
 		A39DD89C06569DF278C698A7 /* libPods-Memory.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98485EBF7B92D046E5688980 /* libPods-Memory.a */; };
+		A7DCD156A695423E818C9D2E /* libWatermelonDB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B99DA8FCCB94E25A4355A23 /* libWatermelonDB.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		2D02E4901E0B4A5D006451C7 /* Memory-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Memory-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39D8A410EBC07F5822F4FD51 /* libPods-Memory-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Memory-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4306AE5BF88B0A3324802113 /* Pods-Memory-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memory-tvOS.release.xcconfig"; path = "Target Support Files/Pods-Memory-tvOS/Pods-Memory-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		49242D7723F0DFB200B17723 /* Memory-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Memory-Bridging-Header.h"; sourceTree = "<group>"; };
+		49242D7823F0DFB200B17723 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		8A00903AF8C516BD51EDA174 /* Pods-MemoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemoryTests.debug.xcconfig"; path = "Target Support Files/Pods-MemoryTests/Pods-MemoryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		98485EBF7B92D046E5688980 /* libPods-Memory.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Memory.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A08799C2B8614FAE0D42F286 /* Pods-Memory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memory.debug.xcconfig"; path = "Target Support Files/Pods-Memory/Pods-Memory.debug.xcconfig"; sourceTree = "<group>"; };
@@ -67,6 +71,8 @@
 		F0531A229DA91E1E522F4F49 /* Pods-Memory-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memory-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Memory-tvOS/Pods-Memory-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F468B7C81D83D0EBDDF35780 /* Pods-Memory-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memory-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-Memory-tvOSTests/Pods-Memory-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		FA3AB32932B27E498E595B5D /* libPods-Memory-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Memory-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		570CC3DFC9E94C829002DABA /* WatermelonDB.xcodeproj */ = {isa = PBXFileReference; name = "WatermelonDB.xcodeproj"; path = "../node_modules/@nozbe/watermelondb/native/ios/WatermelonDB.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		4B99DA8FCCB94E25A4355A23 /* libWatermelonDB.a */ = {isa = PBXFileReference; name = "libWatermelonDB.a"; path = "libWatermelonDB.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A39DD89C06569DF278C698A7 /* libPods-Memory.a in Frameworks */,
+				A7DCD156A695423E818C9D2E /* libWatermelonDB.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +159,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				570CC3DFC9E94C829002DABA /* WatermelonDB.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -159,12 +167,14 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				49242D7823F0DFB200B17723 /* File.swift */,
 				13B07FAE1A68108700A75B9A /* Memory */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* MemoryTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBC8BB65D872188DC50A60B9 /* Pods */,
+				49242D7723F0DFB200B17723 /* Memory-Bridging-Header.h */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -284,7 +294,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -294,6 +304,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = U6A2G5NAJW;
+						LastSwiftMigration = 1130;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -534,6 +545,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				49242D7923F0DFB200B17723 /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,6 +599,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8A00903AF8C516BD51EDA174 /* Pods-MemoryTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				DEVELOPMENT_TEAM = U6A2G5NAJW;
@@ -605,6 +618,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Memory.app/Memory";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/@nozbe/watermelondb/native/ios/WatermelonDB/SupportingFiles/**",
+				);
 			};
 			name = Debug;
 		};
@@ -612,6 +633,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A5EAD89A1A19A6B3D8CEBDD1 /* Pods-MemoryTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				COPY_PHASE_STRIP = NO;
@@ -627,6 +649,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Memory.app/Memory";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/@nozbe/watermelondb/native/ios/WatermelonDB/SupportingFiles/**",
+				);
 			};
 			name = Release;
 		};
@@ -635,6 +665,7 @@
 			baseConfigurationReference = A08799C2B8614FAE0D42F286 /* Pods-Memory.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = U6A2G5NAJW;
@@ -647,7 +678,14 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.anishagnihotri.Memory;
 				PRODUCT_NAME = Memory;
+				SWIFT_OBJC_BRIDGING_HEADER = "Memory-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/@nozbe/watermelondb/native/ios/WatermelonDB/SupportingFiles/**",
+				);
 			};
 			name = Debug;
 		};
@@ -656,6 +694,7 @@
 			baseConfigurationReference = E47159BD140D11832FB9C8B7 /* Pods-Memory.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U6A2G5NAJW;
 				INFOPLIST_FILE = Memory/Info.plist;
@@ -667,7 +706,13 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.anishagnihotri.Memory;
 				PRODUCT_NAME = Memory;
+				SWIFT_OBJC_BRIDGING_HEADER = "Memory-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/@nozbe/watermelondb/native/ios/WatermelonDB/SupportingFiles/**",
+				);
 			};
 			name = Release;
 		};
@@ -697,6 +742,14 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/@nozbe/watermelondb/native/ios/WatermelonDB/SupportingFiles/**",
+				);
 			};
 			name = Debug;
 		};
@@ -726,6 +779,14 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/@nozbe/watermelondb/native/ios/WatermelonDB/SupportingFiles/**",
+				);
 			};
 			name = Release;
 		};
@@ -753,6 +814,14 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Memory-tvOS.app/Memory-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/@nozbe/watermelondb/native/ios/WatermelonDB/SupportingFiles/**",
+				);
 			};
 			name = Debug;
 		};
@@ -780,6 +849,14 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Memory-tvOS.app/Memory-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/@nozbe/watermelondb/native/ios/WatermelonDB/SupportingFiles/**",
+				);
 			};
 			name = Release;
 		};
