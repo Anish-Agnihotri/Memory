@@ -2,6 +2,7 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import PlusButton from '../components/Buttons/PlusButton';
 import MainMenu from '../components/Menus/MainMenu';
+import MemoryLayout from '../components/Memories/Layout';
 
 export default class Diary extends React.Component {
 	constructor() {
@@ -17,6 +18,7 @@ export default class Diary extends React.Component {
 	render() {
 		return (
 			<View style={styles.diaryContainer}>
+				<MemoryLayout />
 				<PlusButton
 					modal={this.state.modal}
 					toggleModal={this.toggleModal}>

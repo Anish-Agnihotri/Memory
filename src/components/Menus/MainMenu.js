@@ -22,6 +22,7 @@ export default class MainMenu extends React.Component {
 			isSpecial: true,
 			emotion: 0,
 			mainShown: true,
+			processActive: false,
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -40,6 +41,9 @@ export default class MainMenu extends React.Component {
 	};
 	changeShown = () => {
 		this.setState({mainShown: false});
+	};
+	updateProcessActive = () => {
+		this.setState(previous => ({processActive: !previous.processActive}));
 	};
 	handleEmotionChange = value => {
 		this.setState({emotion: value});
@@ -73,6 +77,7 @@ export default class MainMenu extends React.Component {
 						<AddPhoto
 							image={this.state.image}
 							addImage={this.handleImagePathChange}
+							updateProcessActive={this.updateProcessActive}
 						/>
 						<SpecialMemory
 							toggleValue={this.state.isSpecial}
@@ -81,6 +86,8 @@ export default class MainMenu extends React.Component {
 						<MenuButton
 							text="Continue"
 							onPress={this.changeShown}
+							processActive={this.state.processActive}
+							disabled={this.state.processActive ? true : false}
 						/>
 					</>
 				) : (

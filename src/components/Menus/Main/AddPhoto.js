@@ -8,9 +8,11 @@ export default class AddPhoto extends React.Component {
 
 		this.state = {
 			imageSelected: false,
+			processActive: false,
 		};
 	}
 	chooseImage = () => {
+		this.props.updateProcessActive();
 		var options = {
 			title: 'Select memory image',
 			storageOptions: {
@@ -18,12 +20,14 @@ export default class AddPhoto extends React.Component {
 				path: 'images',
 			},
 		};
-		// TODO: Loading while image picker operations
 		ImagePicker.showImagePicker(options, response => {
 			// {uri: 'data:image/jpeg;base64,' + response.data};
-			if (!response.didCancel && !response.error) {
+			if (response.didCancel || response.error) {
+				this.props.updateProcessActive();
+			} else if (!response.didCancel && !response.error) {
 				let source = response;
 				this.props.addImage(source);
+				this.props.updateProcessActive();
 			}
 		});
 	};

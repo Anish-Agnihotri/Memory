@@ -9,7 +9,11 @@ export default class MenuButton extends React.Component {
 					this.props.disabled ? styles.buttondisabled : styles.button,
 				]}
 				onPress={this.props.onPress}>
-				<Text style={styles.buttontext}>{this.props.text}</Text>
+				{this.props.processActive ? (
+					<Text style={styles.buttontext}>Loading...</Text>
+				) : (
+					<Text style={styles.buttontext}>{this.props.text}</Text>
+				)}
 			</TouchableOpacity>
 		);
 	}
