@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import moment from 'moment';
-import {emotions} from '../../utils/emotions';
+import {returnEmotionInfo} from '../../utils/helpers';
 
 import MemoryHeader from './Main/MemoryHeader';
 import TitleMemory from './Main/TitleMemory';
@@ -12,7 +12,7 @@ import MenuButton from '../Buttons/MenuButton';
 import EmotionHeader from './Main/EmotionHeader';
 import EmotionSelection from './Main/EmotionSelection';
 
-import {addMemory} from '../../utils/memory_service.js';
+import {addMemory} from '../../models/actions';
 
 export default class MainMenu extends React.Component {
 	constructor() {
@@ -54,9 +54,6 @@ export default class MainMenu extends React.Component {
 	};
 	handleEmotionChange = value => {
 		this.setState({emotion: value});
-	};
-	checkEmotion = value => {
-		return emotions[value - 1].emotion.toLowerCase();
 	};
 	async handleSubmit() {
 		addMemory(
@@ -133,9 +130,9 @@ export default class MainMenu extends React.Component {
 						/>
 						{this.state.emotion !== 0 ? (
 							<MenuButton
-								text={`Create ${this.checkEmotion(
+								text={`Create ${returnEmotionInfo(
 									this.state.emotion,
-								)} memory`}
+								).emotion.toLowerCase()} memory`}
 								onPress={this.handleSubmit}
 							/>
 						) : (

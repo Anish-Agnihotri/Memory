@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
-import moment from 'moment';
+import {dateFormat} from '../../../utils/helpers';
 
 export default class MemoryHeader extends React.Component {
 	constructor() {
@@ -21,16 +21,6 @@ export default class MemoryHeader extends React.Component {
 		this.props.dateUpdate(date);
 		this.setState({isDatePickerVisible: false});
 	};
-	dateFormat = date => {
-		return moment(date).calendar(null, {
-			lastWeek: '[last] dddd',
-			lastDay: '[yesterday]',
-			sameDay: '[today]',
-			sameElse: function() {
-				return 'MMM DD, YYYY';
-			},
-		});
-	};
 	render() {
 		return (
 			<>
@@ -40,7 +30,7 @@ export default class MemoryHeader extends React.Component {
 						style={styles.datebutton}
 						onPress={this.showDatePicker}>
 						<Text style={styles.headerText}>
-							{this.dateFormat(this.props.date)}
+							{dateFormat(this.props.date)}
 						</Text>
 					</TouchableOpacity>
 					<Text style={styles.headerText}>?</Text>
