@@ -21,11 +21,10 @@ export default class AddPhoto extends React.Component {
 			},
 		};
 		ImagePicker.showImagePicker(options, response => {
-			// {uri: 'data:image/jpeg;base64,' + response.data};
 			if (response.didCancel || response.error) {
 				this.props.updateProcessActive();
 			} else if (!response.didCancel && !response.error) {
-				let source = response;
+				let source = {uri: response.uri};
 				this.props.addImage(source);
 				this.props.updateProcessActive();
 			}

@@ -4,6 +4,7 @@ import moment from 'moment';
 import {emotions} from '../../utils/emotions';
 
 import MemoryHeader from './Main/MemoryHeader';
+import TitleMemory from './Main/TitleMemory';
 import DescribeMemory from './Main/DescribeMemory';
 import AddPhoto from './Main/AddPhoto';
 import SpecialMemory from './Main/SpecialMemory';
@@ -11,11 +12,14 @@ import MenuButton from '../Buttons/MenuButton';
 import EmotionHeader from './Main/EmotionHeader';
 import EmotionSelection from './Main/EmotionSelection';
 
+import {addMemory} from '../../utils/memory_service.js';
+
 export default class MainMenu extends React.Component {
 	constructor() {
 		super();
 
 		this.state = {
+			title: '',
 			date: new Date(),
 			image: '',
 			entry: '',
@@ -27,6 +31,9 @@ export default class MainMenu extends React.Component {
 
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
+	titleUpdate = value => {
+		this.setState({title: value});
+	};
 	entryUpdate = value => {
 		this.setState({entry: value});
 	};
@@ -52,13 +59,14 @@ export default class MainMenu extends React.Component {
 		return emotions[value - 1].emotion.toLowerCase();
 	};
 	async handleSubmit() {
-		console.log({
-			date: this.state.date,
-			entry: this.state.entry,
-			image: this.state.image,
-			isSpecial: this.state.isSpecial,
-			emotion: this.state.emotion,
-		});
+		addMemory(
+			this.state.title,
+			this.state.date,
+			this.state.entry,
+			this.state.image.uri,
+			this.state.isSpecial,
+			this.state.emotion,
+		);
 		this.props.toggleModal();
 	}
 	render() {
@@ -69,6 +77,10 @@ export default class MainMenu extends React.Component {
 						<MemoryHeader
 							date={this.state.date}
 							dateUpdate={this.handleDateChange}
+						/>
+						<TitleMemory
+							titleValue={this.state.title}
+							titleUpdate={this.titleUpdate}
 						/>
 						<DescribeMemory
 							entryValue={this.state.entry}
@@ -83,12 +95,25 @@ export default class MainMenu extends React.Component {
 							toggleValue={this.state.isSpecial}
 							onToggle={this.toggleSpecial}
 						/>
-						<MenuButton
-							text="Continue"
-							onPress={this.changeShown}
-							processActive={this.state.processActive}
-							disabled={this.state.processActive ? true : false}
-						/>
+						{this.state.title === '' ? (
+							<MenuButton
+								text="Continue"
+								onPress={this.changeShown}
+								processText="Please enter title"
+								processActive={true}
+								disabled={true}
+							/>
+						) : (
+							<MenuButton
+								text="Continue"
+								onPress={this.changeShown}
+								processText="Loading..."
+								processActive={this.state.processActive}
+								disabled={
+									this.state.processActive ? true : false
+								}
+							/>
+						)}
 					</>
 				) : (
 					<>
