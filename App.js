@@ -12,23 +12,14 @@ import Memories from './src/screens/Memories';
 
 const Tab = createMaterialTopTabNavigator();
 const TabBarConfig = {
-	inactiveTintColor: '#B5BFC5',
-	activeTintColor: '#167CE6',
+	inactiveTintColor: '#718888',
+	activeTintColor: '#024342',
 	labelStyle: {
 		fontWeight: '700',
 	},
 	indicatorStyle: {
-		backgroundColor: '#167CE6',
+		backgroundColor: '#006565',
 		height: 2.5,
-	},
-	style: {
-		shadowOffset: {
-			height: 2,
-		},
-		shadowColor: '#000000',
-		shadowOpacity: 0.2,
-		shadowRadius: 3,
-		elevation: 2,
 	},
 };
 

@@ -22,18 +22,18 @@ export default class MenuButton extends React.Component {
 
 const styles = StyleSheet.create({
 	button: {
-		backgroundColor: '#167DE6',
-		height: 40,
+		backgroundColor: '#000',
+		height: 45,
 		marginTop: 20,
-		borderRadius: 10,
+		borderRadius: 7.5,
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
 	buttondisabled: {
-		backgroundColor: '#ccc',
-		height: 40,
+		backgroundColor: '#C8D2D7',
+		height: 45,
 		marginTop: 20,
-		borderRadius: 10,
+		borderRadius: 5,
 		alignItems: 'center',
 		justifyContent: 'center',
 	},

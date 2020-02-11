@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
 	datebutton: {
 		marginLeft: 3,
 		borderBottomWidth: 1,
-		borderColor: '#167DE6',
+		borderColor: '#006565',
 		paddingBottom: 2,
 	},
 	headerText: {

@@ -5,12 +5,12 @@ export default class SpecialMemory extends React.Component {
 	render() {
 		return (
 			<View style={styles.switch}>
-				<Text style={styles.switchText}>Special Memory</Text>
+				<Text style={styles.switchText}>Keep as memory</Text>
 				<Switch
 					style={styles.switchSelf}
 					onValueChange={this.props.onToggle}
 					value={this.props.toggleValue}
-					trackColor={{true: '#167DE6'}}
+					trackColor={{true: '#006565'}}
 				/>
 			</View>
 		);

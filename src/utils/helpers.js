@@ -4,19 +4,28 @@ import {emotions} from './emotions';
 export function returnEmotionInfo(emotionInt) {
 	var emotion = emotions[emotionInt - 1];
 	return {
+		emoji: emotion.emoji,
 		emotion: emotion.emotion,
-		mainColor: emotion.mainColor,
-		alternateColor: emotion.alternateColor,
 	};
 }
 
 export function dateFormat(date) {
 	return moment(date).calendar(null, {
-		lastWeek: '[last] dddd',
-		lastDay: '[yesterday]',
-		sameDay: '[today]',
+		lastWeek: '[Last] dddd',
+		lastDay: '[Yesterday]',
+		sameDay: '[Today]',
 		sameElse: function() {
 			return 'MMM DD, YYYY';
 		},
 	});
+}
+
+export function memoryDateFormat(date) {
+	return moment(date).calendar(null, 'MMMM DD, YYYY');
+}
+
+export function imagePath(uri) {
+	var path = '~/Documents' + uri.split('/Documents')[1];
+	console.log(path);
+	return path;
 }

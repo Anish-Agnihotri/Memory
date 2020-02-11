@@ -15,8 +15,6 @@ export default class Memories extends React.Component {
 const styles = StyleSheet.create({
 	memoriesContainer: {
 		flex: 1,
-		padding: 15,
-		paddingTop: 30,
-		backgroundColor: '#fff',
+		backgroundColor: '#F0F7F7',
 	},
 });

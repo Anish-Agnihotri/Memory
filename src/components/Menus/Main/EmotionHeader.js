@@ -17,9 +17,10 @@ const styles = StyleSheet.create({
 	container: {
 		flexDirection: 'row',
 		flexWrap: 'wrap',
+		alignSelf: 'center',
 	},
 	header: {
 		fontSize: 20,
-		marginLeft: 10,
+		fontWeight: '500',
 	},
 });

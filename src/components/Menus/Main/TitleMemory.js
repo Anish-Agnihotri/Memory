@@ -19,10 +19,10 @@ export default class TitleMemory extends React.Component {
 
 const styles = StyleSheet.create({
 	titleinput: {
-		borderColor: '#ccc',
+		borderColor: '#C8D2D7',
 		borderWidth: 1,
 		height: 40,
-		borderRadius: 10,
+		borderRadius: 7.5,
 		marginTop: 15,
 		paddingLeft: 10,
 		fontSize: 16,

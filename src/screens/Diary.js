@@ -32,8 +32,6 @@ export default class Diary extends React.Component {
 const styles = StyleSheet.create({
 	diaryContainer: {
 		flex: 1,
-		padding: 15,
-		paddingTop: 30,
-		backgroundColor: '#fff',
+		backgroundColor: '#F0F7F7',
 	},
 });

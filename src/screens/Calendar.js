@@ -1,12 +1,19 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 
 export default class Calendar extends React.Component {
 	render() {
 		return (
-			<View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+			<View style={styles.calendarview}>
 				<Text>Calendar</Text>
 			</View>
 		);
 	}
 }
+
+const styles = StyleSheet.create({
+	calendarview: {
+		flex: 1,
+		backgroundColor: '#F0F7F7',
+	},
+});

@@ -20,10 +20,10 @@ export default class DescribeMemory extends React.Component {
 
 const styles = StyleSheet.create({
 	memoryinput: {
-		borderColor: '#ccc',
+		borderColor: '#C8D2D7',
 		borderWidth: 1,
 		height: 120,
-		borderRadius: 10,
+		borderRadius: 7.5,
 		marginTop: 15,
 		paddingTop: 15,
 		paddingLeft: 10,

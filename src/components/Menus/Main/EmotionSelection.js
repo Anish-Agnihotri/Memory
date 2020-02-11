@@ -13,8 +13,7 @@ export default class EmotionSelection extends React.Component {
 								key={data.id}
 								id={data.id}
 								emotionName={data.emotion}
-								mainColor={data.mainColor}
-								alternateColor={data.alternateColor}
+								emoji={data.emoji}
 								onPress={() =>
 									this.props.emotionChange(data.id)
 								}
@@ -31,16 +30,11 @@ export default class EmotionSelection extends React.Component {
 
 class Emotion extends React.Component {
 	render() {
-		const mainColor = this.props.mainColor;
-		const alternateColor = this.props.alternateColor;
 		return (
 			<TouchableOpacity
 				onPress={this.props.onPress}
-				style={[
-					styles.emotionbutton,
-					{borderColor: mainColor, backgroundColor: alternateColor},
-				]}>
-				<Text style={{color: mainColor}}>{this.props.emotionName}</Text>
+				style={styles.emotionbutton}>
+				<Text style={styles.emotionbuttontext}>{this.props.emoji}</Text>
 			</TouchableOpacity>
 		);
 	}
@@ -51,14 +45,20 @@ const styles = StyleSheet.create({
 		marginTop: 15,
 		flexWrap: 'wrap',
 		flexDirection: 'row',
+		justifyContent: 'center',
 	},
 	emotionbutton: {
 		margin: 5,
-		paddingTop: 7,
-		paddingBottom: 7,
-		paddingLeft: 10,
-		paddingRight: 10,
-		borderRadius: 5,
+		borderRadius: 50,
+		padding: 5,
 		borderWidth: 1,
+		borderColor: '#006666',
+		backgroundColor: '#F0F8F8',
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+	emotionbuttontext: {
+		color: '#338282',
+		fontSize: 25,
 	},
 });
