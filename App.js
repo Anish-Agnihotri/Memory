@@ -30,6 +30,7 @@ function App() {
 				<NavigationContainer>
 					<Tab.Navigator
 						initialRouteName={'Diary'}
+						lazy={true}
 						tabBarOptions={TabBarConfig}>
 						<Tab.Screen name="My Diary" component={Diary} />
 						<Tab.Screen name="Calendar" component={Calendar} />

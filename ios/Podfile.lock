@@ -224,12 +224,14 @@ PODS:
     - React-cxxreact (= 0.61.5)
     - React-jsi (= 0.61.5)
     - ReactCommon/jscallinvoker (= 0.61.5)
-  - RealmJS (4.0.0-beta.0):
+  - RealmJS (4.0.0-beta.1):
     - GCDWebServer
     - React
   - RNCMaskedView (0.1.6):
     - React
   - RNDateTimePicker (2.2.1):
+    - React
+  - RNFS (2.16.4):
     - React
   - RNGestureHandler (1.5.6):
     - React
@@ -272,6 +274,7 @@ DEPENDENCIES:
   - RealmJS (from `../node_modules/realm`)
   - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
   - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
+  - RNFS (from `../node_modules/react-native-fs`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
@@ -341,6 +344,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-community/masked-view"
   RNDateTimePicker:
     :path: "../node_modules/@react-native-community/datetimepicker"
+  RNFS:
+    :path: "../node_modules/react-native-fs"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNReanimated:
@@ -379,14 +384,15 @@ SPEC CHECKSUMS:
   React-RCTText: 9ccc88273e9a3aacff5094d2175a605efa854dbe
   React-RCTVibration: a49a1f42bf8f5acf1c3e297097517c6b3af377ad
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
-  RealmJS: 0b9f5194ec402cdf53a6e9ea2e4d8ae156e62a2f
+  RealmJS: a0d9e4ea107a1beedc2ead1737b6ead6d82705ea
   RNCMaskedView: a88953beefbd347a29072d9eba90e42945fe291e
   RNDateTimePicker: 1a251f8b276abda796d8119a96bcd1763a76f6b0
+  RNFS: 90d1a32d3bc8f75cc7fc3dd2f67506049664346b
   RNGestureHandler: 911d3b110a7a233a34c4f800e7188a84b75319c6
   RNReanimated: 031fe8d9ea93c2bd689a40f05320ef9d96f74d7f
   RNScreens: 5e4758109c6d35f9a009ce72af873df907548020
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
-PODFILE CHECKSUM: 98625dae611ed56a9106d61600723f3071d07d64
+PODFILE CHECKSUM: 404d49e1120514644c053a0e510b79e15459d5ef
 
 COCOAPODS: 1.7.5

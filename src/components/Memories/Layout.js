@@ -13,6 +13,8 @@ export default class MemoryLayout extends React.Component {
 			diaryItems: [],
 			refreshing: true,
 		};
+
+		this.flatList = React.createRef();
 	}
 	updateDiaryItems = () => {
 		var value = returnMemories(this.props.memories);
@@ -27,12 +29,8 @@ export default class MemoryLayout extends React.Component {
 				ListHeaderComponent={<View style={{paddingTop: 10}} />}
 				ListFooterComponent={<View style={{paddingBottom: 5}} />}
 				data={this.state.diaryItems}
-				refreshControl={
-					<RefreshControl
-						refreshing={this.state.refreshing}
-						onRefresh={this.updateDiaryItems}
-					/>
-				}
+				initialNumToRender={5}
+				removeClippedSubviews={false}
 				renderItem={({item}) => (
 					<MemoryItem
 						id={item.id}
@@ -41,6 +39,7 @@ export default class MemoryLayout extends React.Component {
 						image={item.image}
 						entry={item.entry}
 						emotion={returnEmotionInfo(item.emotion)}
+						isSpecial={item.isSpecial}
 					/>
 				)}
 				keyExtractor={item => item.id.toString()}

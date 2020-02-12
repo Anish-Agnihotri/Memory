@@ -15,6 +15,11 @@ export default class AddPhoto extends React.Component {
 		this.props.updateProcessActive();
 		var options = {
 			title: 'Select memory image',
+			cameraType: 'back',
+			mediaType: 'photo',
+			maxWidth: 800,
+			maxHeight: 400,
+			allowsEditing: true,
 			storageOptions: {
 				skipBackup: true,
 				path: 'images',
@@ -25,6 +30,7 @@ export default class AddPhoto extends React.Component {
 				this.props.updateProcessActive();
 			} else if (!response.didCancel && !response.error) {
 				let source = {uri: response.uri};
+				console.log(source);
 				this.props.addImage(source);
 				this.props.updateProcessActive();
 			}

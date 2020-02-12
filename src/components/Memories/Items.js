@@ -1,6 +1,8 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, Image, StyleSheet, Dimensions} from 'react-native';
 import {imagePath} from '../../utils/helpers';
+
+let window = Dimensions.get('window');
 
 export default class MemoryItem extends React.Component {
 	render() {
@@ -9,14 +11,32 @@ export default class MemoryItem extends React.Component {
 				<Text style={styles.memorydate}>{this.props.date}</Text>
 				<Text style={styles.memorytitle}>{this.props.title}</Text>
 				{this.props.image !== null ? (
-					<Image source={imagePath(this.props.image)} />
+					<View style={styles.imagecomponent}>
+						<Image
+							style={styles.memoryimage}
+							source={{
+								isStatic: true,
+								uri: `${imagePath(this.props.image)}`,
+							}}
+						/>
+					</View>
 				) : null}
 				{this.props.entry !== '' ? (
 					<Text style={styles.memoryentry}>{this.props.entry}</Text>
 				) : null}
 				<View style={styles.wrapfix}>
+					{this.props.isSpecial ? (
+						<View style={styles.specialemotion}>
+							<Text style={styles.specialemotiontext}>
+								⭐ Special
+							</Text>
+						</View>
+					) : null}
 					<View style={styles.memoryemotion}>
-						<Text style={styles.memoryemotiontext}>{this.props.emotion.emoji} {this.props.emotion.emotion}</Text>
+						<Text style={styles.memoryemotiontext}>
+							{this.props.emotion.emoji}{' '}
+							{this.props.emotion.emotion}
+						</Text>
 					</View>
 				</View>
 			</View>
@@ -30,11 +50,11 @@ const styles = StyleSheet.create({
 		marginBottom: 10,
 		marginLeft: 15,
 		marginRight: 15,
-		paddingTop: 20,
-		paddingLeft: 20,
-		paddingRight: 20,
+		paddingTop: 15,
 		paddingBottom: 12.5,
 		borderRadius: 10,
+		paddingLeft: 20,
+		paddingRight: 20,
 		backgroundColor: '#FDFDFD',
 		shadowColor: '#000',
 		shadowOffset: {
@@ -52,7 +72,7 @@ const styles = StyleSheet.create({
 	memorytitle: {
 		color: '#082A2A',
 		fontWeight: '600',
-		fontSize: 20,
+		fontSize: 23,
 		marginTop: 5,
 	},
 	memoryentry: {
@@ -68,14 +88,43 @@ const styles = StyleSheet.create({
 		borderColor: '#006666',
 		backgroundColor: '#F0F8F8',
 		marginTop: 10,
-		marginLeft: -2,
+	},
+	specialemotion: {
+		margin: 5,
+		borderRadius: 10,
+		padding: 5,
+		borderWidth: 1,
+		borderColor: '#FF836B',
+		backgroundColor: '#FFF6F4',
+		marginTop: 10,
 	},
 	memoryemotiontext: {
 		color: '#338282',
 		fontSize: 14,
 	},
+	specialemotiontext: {
+		color: '#FF836B',
+		fontSize: 14,
+	},
 	wrapfix: {
 		flexWrap: 'wrap',
 		flexDirection: 'row',
+		marginLeft: -5,
+	},
+	memoryimage: {
+		width: window.width - 70,
+		marginTop: 10,
+		marginBottom: 10,
+		height: 150,
+		borderRadius: 10,
+	},
+	imagecomponent: {
+		shadowColor: '#000',
+		shadowOffset: {
+			width: 0,
+			height: 2,
+		},
+		shadowOpacity: 0.2,
+		shadowRadius: 4.84,
 	},
 });

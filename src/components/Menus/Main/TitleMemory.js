@@ -9,8 +9,8 @@ export default class TitleMemory extends React.Component {
 					style={styles.titleinput}
 					onChangeText={this.props.titleUpdate}
 					value={this.props.titleValue}
-					placeholder="Give this entry a title (<35 chars)"
-					maxLength={35}
+					placeholder="Give this entry a title (<50 chars)"
+					maxLength={50}
 				/>
 			</View>
 		);
