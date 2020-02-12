@@ -10,6 +10,7 @@ export default class TitleMemory extends React.Component {
 					onChangeText={this.props.titleUpdate}
 					value={this.props.titleValue}
 					placeholder="Give this entry a title (<50 chars)"
+					placeholderTextColor="#b3b3b3"
 					maxLength={50}
 				/>
 			</View>
@@ -20,6 +21,7 @@ export default class TitleMemory extends React.Component {
 const styles = StyleSheet.create({
 	titleinput: {
 		borderColor: '#C8D2D7',
+		color: '#000',
 		borderWidth: 1,
 		height: 40,
 		borderRadius: 7.5,

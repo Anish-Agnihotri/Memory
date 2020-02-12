@@ -46,6 +46,8 @@ export default class MemoryLayout extends React.Component {
 						entry={item.entry}
 						emotion={returnEmotionInfo(item.emotion)}
 						isSpecial={item.isSpecial}
+						isMemoryLayout={this.props.memories}
+						runRefresh={this.updateDiaryItems}
 					/>
 				)}
 				keyExtractor={item => item.id.toString()}

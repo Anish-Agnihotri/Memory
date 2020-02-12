@@ -15,9 +15,9 @@ export function returnEmotionInfo(emotionArray) {
 
 export function dateFormat(date) {
 	return moment(date).calendar(null, {
-		lastWeek: '[Last] dddd',
-		lastDay: '[Yesterday]',
-		sameDay: '[Today]',
+		lastWeek: '[last] dddd',
+		lastDay: '[yesterday]',
+		sameDay: '[today]',
 		sameElse: function() {
 			return 'MMM DD, YYYY';
 		},

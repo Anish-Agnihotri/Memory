@@ -10,6 +10,7 @@ export default class DescribeMemory extends React.Component {
 					onChangeText={this.props.entryUpdate}
 					value={this.props.entryValue}
 					placeholder="Write a short diary entry (<240 chars)"
+					placeholderTextColor="#b3b3b3"
 					multiline={true}
 					maxLength={240}
 				/>
@@ -21,6 +22,7 @@ export default class DescribeMemory extends React.Component {
 const styles = StyleSheet.create({
 	memoryinput: {
 		borderColor: '#C8D2D7',
+		color: '#000',
 		borderWidth: 1,
 		height: 120,
 		borderRadius: 7.5,

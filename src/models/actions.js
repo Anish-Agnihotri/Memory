@@ -26,3 +26,11 @@ export function returnMemories(onlySpecial) {
 		return memory_storage.objects('Memory').sorted('date', true);
 	}
 }
+
+export function deleteMemory(id) {
+	memory_storage.write(() => {
+		var object = memory_storage.objectForPrimaryKey('Memory', id);
+
+		memory_storage.delete(object);
+	});
+}

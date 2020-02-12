@@ -104,7 +104,7 @@ export default class MainMenu extends React.Component {
 								<MenuButton
 									text="Continue"
 									onPress={this.changeShown}
-									processText="Please enter title"
+									processText="Please enter a title"
 									processActive={true}
 									disabled={true}
 								/>
@@ -136,12 +136,14 @@ export default class MainMenu extends React.Component {
 								currentEmotion={this.state.emotion}
 								emotionChange={this.handleEmotionChange}
 							/>
-							{this.state.emotion !== [] ? (
+							{this.state.emotion.length !== 0 ? (
 								<MenuButton
 									text={`Create with ${
 										this.state.emotion.length
 									} emotion${
-										this.state.emotion.length !== 1 ? 's' : ''
+										this.state.emotion.length !== 1
+											? 's'
+											: ''
 									}`}
 									onPress={this.handleSubmit}
 								/>
