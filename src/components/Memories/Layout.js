@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, FlatList, RefreshControl} from 'react-native';
 import MemoryItem from './Items';
+import Placeholder from './Placeholder';
 
 import {returnMemories} from '../../models/actions';
 import {returnEmotionInfo, memoryDateFormat} from '../../utils/helpers';
@@ -37,6 +38,9 @@ export default class MemoryLayout extends React.Component {
 				data={this.state.diaryItems}
 				initialNumToRender={5}
 				removeClippedSubviews={false}
+				ListEmptyComponent={
+					<Placeholder isMemoriesPage={this.props.memories} />
+				}
 				renderItem={({item}) => (
 					<MemoryItem
 						id={item.id}

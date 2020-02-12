@@ -6,8 +6,8 @@ export function returnEmotionInfo(emotionArray) {
 	var array = [];
 	for (let i = 0; i < emotionArray.length; i++) {
 		array.push({
-			emoji: emotions[emotionArray[i]].emoji,
-			emotion: emotions[emotionArray[i]].emotion,
+			emoji: emotions[emotionArray[i] - 1].emoji,
+			emotion: emotions[emotionArray[i] - 1].emotion,
 		});
 	}
 	return array;
