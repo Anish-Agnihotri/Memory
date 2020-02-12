@@ -5,4 +5,3 @@ Todos
 5. Calendar setup
 6. Proper phone sizing
 7. Make memories not special
-8. Fix keyboard layout
