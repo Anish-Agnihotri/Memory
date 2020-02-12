@@ -2,7 +2,10 @@ import {memory_storage} from './memory_service';
 
 export function addMemory(title, date, entry, image, isSpecial, emotions) {
 	memory_storage.write(() => {
-		var id = memory_storage.objects('Memory').length + 1;
+		var id = memory_storage.objects('Memory').max('id') + 1;
+		if (isNaN(id)) {
+			id = 0;
+		}
 
 		memory_storage.create('Memory', {
 			id: id,
@@ -32,5 +35,6 @@ export function deleteMemory(id) {
 		var object = memory_storage.objectForPrimaryKey('Memory', id);
 
 		memory_storage.delete(object);
+		console.log(returnMemories(false));
 	});
 }

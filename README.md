@@ -7,4 +7,3 @@ Todos
 9. Fix for dark mode
 12. no entry today component
 13. settings menu
-14. Fix delete indexing

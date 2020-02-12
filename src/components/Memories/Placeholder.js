@@ -28,7 +28,7 @@ export default class Placeholder extends React.Component {
 						: 'No diary entries found'}
 				</Text>
 				<Text style={styles.placeholderdesc}>
-					{this.props.isMemoriesPage ? 'Select keep when adding a diary entry to save special memories!' : 'Get started by creating a new diary entry and capture your memories!'}
+					{this.props.isMemoriesPage ? 'Select keep, when adding a diary entry, to save special memories!' : 'Get started by creating a new diary entry and capture your memories!'}
 				</Text>
 			</View>
 		);
