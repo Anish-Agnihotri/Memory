@@ -2,8 +2,9 @@ import React from 'react';
 import {View, FlatList, RefreshControl} from 'react-native';
 import MemoryItem from './Items';
 import Placeholder from './Placeholder';
+import NoMemoryToday from './NoMemoryToday';
 
-import {returnMemories} from '../../models/actions';
+import {returnMemories, memoryToday} from '../../models/actions';
 import {returnEmotionInfo, memoryDateFormat} from '../../utils/helpers';
 
 export default class MemoryLayout extends React.Component {
@@ -13,13 +14,24 @@ export default class MemoryLayout extends React.Component {
 		this.state = {
 			diaryItems: [],
 			refreshing: true,
+			memoryToday: false,
 		};
 
 		this.flatList = React.createRef();
 	}
 	updateDiaryItems = () => {
 		var value = returnMemories(this.props.memories);
-		this.setState({refreshing: false, diaryItems: value});
+
+		var showMemoryTodayItem = false;
+		if (value.length >= 1 && memoryToday() === false) {
+			showMemoryTodayItem = true;
+		}
+
+		this.setState({
+			refreshing: false,
+			diaryItems: value,
+			showMemoryTodayItem: showMemoryTodayItem,
+		});
 	};
 	componentDidMount() {
 		this.updateDiaryItems();
@@ -27,7 +39,14 @@ export default class MemoryLayout extends React.Component {
 	render() {
 		return (
 			<FlatList
-				ListHeaderComponent={<View style={{paddingTop: 10}} />}
+				ListHeaderComponent={
+					<>
+						<View style={{paddingTop: 10}} />
+						{this.state.showMemoryTodayItem ? (
+							<NoMemoryToday />
+						) : null}
+					</>
+				}
 				ListFooterComponent={<View style={{paddingBottom: 5}} />}
 				refreshControl={
 					<RefreshControl

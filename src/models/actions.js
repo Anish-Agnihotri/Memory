@@ -38,3 +38,20 @@ export function deleteMemory(id) {
 		console.log(returnMemories(false));
 	});
 }
+
+export function memoryToday() {
+	var beginningOfDay = new Date(
+		new Date().setHours(0, 0, 0, 0),
+	).toISOString();
+	var currentTime = new Date();
+
+	var memoriesToday = memory_storage
+		.objects('Memory')
+		.filtered('date >= $0 && date < $1', beginningOfDay, currentTime);
+
+	if (memoriesToday.length > 0) {
+		return true;
+	} else {
+		return false;
+	}
+}
