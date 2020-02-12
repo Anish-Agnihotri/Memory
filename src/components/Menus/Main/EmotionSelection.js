@@ -29,11 +29,32 @@ export default class EmotionSelection extends React.Component {
 // TODO: Make alternatecolor toggle
 
 class Emotion extends React.Component {
+	constructor() {
+		super();
+
+		this.state = {
+			clicked: false,
+		};
+	}
+	toggleClicked = () => {
+		this.setState(previous => ({clicked: !previous.clicked}));
+	};
+	handlePress = () => {
+		this.toggleClicked();
+		this.props.onPress();
+	};
 	render() {
 		return (
 			<TouchableOpacity
-				onPress={this.props.onPress}
-				style={styles.emotionbutton}>
+				onPress={this.handlePress}
+				style={[
+					styles.emotionbutton,
+					[
+						this.state.clicked
+							? {backgroundColor: '#DCEFEF'}
+							: {backgroundColor: '#FFF'},
+					],
+				]}>
 				<Text style={styles.emotionbuttontext}>{this.props.emoji}</Text>
 			</TouchableOpacity>
 		);
@@ -53,7 +74,6 @@ const styles = StyleSheet.create({
 		padding: 5,
 		borderWidth: 1,
 		borderColor: '#006666',
-		backgroundColor: '#F0F8F8',
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
