@@ -18,7 +18,7 @@ export default class Diary extends React.Component {
 	render() {
 		return (
 			<View style={styles.diaryContainer}>
-				<MemoryLayout memories={false} />
+				<MemoryLayout memories={false} toggleModal={this.toggleModal} />
 				<PlusButton
 					modal={this.state.modal}
 					toggleModal={this.toggleModal}>

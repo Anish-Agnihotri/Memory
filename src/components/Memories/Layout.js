@@ -23,7 +23,11 @@ export default class MemoryLayout extends React.Component {
 		var value = returnMemories(this.props.memories);
 
 		var showMemoryTodayItem = false;
-		if (value.length >= 1 && memoryToday() === false) {
+		if (
+			value.length >= 1 &&
+			memoryToday() === false &&
+			this.props.memories === false
+		) {
 			showMemoryTodayItem = true;
 		}
 
@@ -43,7 +47,9 @@ export default class MemoryLayout extends React.Component {
 					<>
 						<View style={{paddingTop: 10}} />
 						{this.state.showMemoryTodayItem ? (
-							<NoMemoryToday />
+							<NoMemoryToday
+								toggleModal={this.props.toggleModal}
+							/>
 						) : null}
 					</>
 				}
