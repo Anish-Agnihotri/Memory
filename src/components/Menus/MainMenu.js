@@ -24,7 +24,7 @@ export default class MainMenu extends React.Component {
 			image: '',
 			entry: '',
 			isSpecial: true,
-			emotion: 0,
+			emotion: [],
 			mainShown: true,
 			processActive: false,
 		};
@@ -53,7 +53,7 @@ export default class MainMenu extends React.Component {
 		this.setState(previous => ({processActive: !previous.processActive}));
 	};
 	handleEmotionChange = value => {
-		this.setState({emotion: value});
+		this.setState({emotion: [...this.state.emotion, ...[value]]});
 	};
 	async handleSubmit() {
 		addMemory(
@@ -128,11 +128,9 @@ export default class MainMenu extends React.Component {
 							currentEmotion={this.state.emotion}
 							emotionChange={this.handleEmotionChange}
 						/>
-						{this.state.emotion !== 0 ? (
+						{this.state.emotion !== [] ? (
 							<MenuButton
-								text={`Create ${returnEmotionInfo(
-									this.state.emotion,
-								).emotion.toLowerCase()} memory`}
+								text={`Create memory`}
 								onPress={this.handleSubmit}
 							/>
 						) : (

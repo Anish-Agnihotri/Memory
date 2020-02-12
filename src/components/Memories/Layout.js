@@ -28,6 +28,12 @@ export default class MemoryLayout extends React.Component {
 			<FlatList
 				ListHeaderComponent={<View style={{paddingTop: 10}} />}
 				ListFooterComponent={<View style={{paddingBottom: 5}} />}
+				refreshControl={
+					<RefreshControl
+						refreshing={this.state.refreshing}
+						onRefresh={this.updateDiaryItems}
+					/>
+				}
 				data={this.state.diaryItems}
 				initialNumToRender={5}
 				removeClippedSubviews={false}

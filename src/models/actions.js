@@ -1,6 +1,6 @@
 import {memory_storage} from './memory_service';
 
-export function addMemory(title, date, entry, image, isSpecial, emotion) {
+export function addMemory(title, date, entry, image, isSpecial, emotions) {
 	memory_storage.write(() => {
 		var id = memory_storage.objects('Memory').length + 1;
 
@@ -10,7 +10,7 @@ export function addMemory(title, date, entry, image, isSpecial, emotion) {
 			date: date,
 			entry: entry,
 			isSpecial: isSpecial,
-			emotion: emotion,
+			emotion: emotions,
 			image: image,
 		});
 	});
@@ -21,7 +21,7 @@ export function returnMemories(onlySpecial) {
 		return memory_storage
 			.objects('Memory')
 			.sorted('date', true) // Descending order by date
-			.filtered('isSpecial = true'); // TODO: Fix this
+			.filtered('isSpecial = true');
 	} else {
 		return memory_storage.objects('Memory').sorted('date', true);
 	}

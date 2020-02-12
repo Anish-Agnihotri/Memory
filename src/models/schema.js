@@ -8,7 +8,7 @@ export const memory_schema = [
 			date: 'date',
 			entry: {type: 'string', optional: true},
 			isSpecial: 'bool',
-			emotion: 'int',
+			emotion: 'int?[]',
 			image: {type: 'string', optional: true},
 		},
 	},

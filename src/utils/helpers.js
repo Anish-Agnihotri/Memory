@@ -2,12 +2,15 @@ import moment from 'moment';
 import {emotions} from './emotions';
 import RNFS from 'react-native-fs';
 
-export function returnEmotionInfo(emotionInt) {
-	var emotion = emotions[emotionInt - 1];
-	return {
-		emoji: emotion.emoji,
-		emotion: emotion.emotion,
-	};
+export function returnEmotionInfo(emotionArray) {
+	var array = [];
+	for (let i = 0; i < emotionArray.length; i++) {
+		array.push({
+			emoji: emotions[emotionArray[i]].emoji,
+			emotion: emotions[emotionArray[i]].emotion,
+		});
+	}
+	return array;
 }
 
 export function dateFormat(date) {

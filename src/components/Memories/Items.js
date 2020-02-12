@@ -32,12 +32,15 @@ export default class MemoryItem extends React.Component {
 							</Text>
 						</View>
 					) : null}
-					<View style={styles.memoryemotion}>
-						<Text style={styles.memoryemotiontext}>
-							{this.props.emotion.emoji}{' '}
-							{this.props.emotion.emotion}
-						</Text>
-					</View>
+					{this.props.emotion.map((data, idx) => {
+						return (
+							<View key={idx} style={styles.memoryemotion}>
+								<Text style={styles.memoryemotiontext}>
+									{data.emoji} {data.emotion}
+								</Text>
+							</View>
+						);
+					})}
 				</View>
 			</View>
 		);
@@ -81,22 +84,20 @@ const styles = StyleSheet.create({
 		marginTop: 5,
 	},
 	memoryemotion: {
-		margin: 5,
+		margin: 3,
 		borderRadius: 10,
 		padding: 5,
 		borderWidth: 1,
 		borderColor: '#006666',
 		backgroundColor: '#F0F8F8',
-		marginTop: 10,
 	},
 	specialemotion: {
-		margin: 5,
+		margin: 3,
 		borderRadius: 10,
 		padding: 5,
 		borderWidth: 1,
 		borderColor: '#FF836B',
 		backgroundColor: '#FFF6F4',
-		marginTop: 10,
 	},
 	memoryemotiontext: {
 		color: '#338282',
@@ -109,7 +110,8 @@ const styles = StyleSheet.create({
 	wrapfix: {
 		flexWrap: 'wrap',
 		flexDirection: 'row',
-		marginLeft: -5,
+		marginLeft: -3,
+		marginTop: 10,
 	},
 	memoryimage: {
 		width: window.width - 70,
