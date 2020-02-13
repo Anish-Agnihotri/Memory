@@ -13,7 +13,6 @@ import Settings from './src/screens/Settings';
 
 import SettingsButton from './src/components/Buttons/SettingsButton';
 import {navigationRef} from './src/utils/navigation';
-import * as RootNavigation from './src/utils/navigation';
 
 const TabBarConfig = {
 	inactiveTintColor: '#718888',
@@ -35,13 +34,16 @@ const RootStack = createStackNavigator();
 
 function MainStackScreen() {
 	return (
-		<MainStack.Navigator
-			initialRouteName={'Diary'}
-			tabBarOptions={TabBarConfig}>
-			<MainStack.Screen name="My Diary" component={Diary} />
-			<MainStack.Screen name="Calendar" component={Calendar} />
-			<MainStack.Screen name="Memories" component={Memories} />
-		</MainStack.Navigator>
+		<SafeAreaView style={{flex: 1}} forceInset={{bottom: 'never'}}>
+			<MainStack.Navigator
+				initialRouteName={'Diary'}
+				tabBarOptions={TabBarConfig}>
+				<MainStack.Screen name="My Diary" component={Diary} />
+				<MainStack.Screen name="Calendar" component={Calendar} />
+				<MainStack.Screen name="Memories" component={Memories} />
+			</MainStack.Navigator>
+			<SettingsButton />
+		</SafeAreaView>
 	);
 }
 
@@ -50,31 +52,30 @@ class App extends React.Component {
 		return (
 			<SafeAreaProvider>
 				<StatusBar translucent={true} barStyle="dark-content" />
-				<SafeAreaView style={{flex: 1}} forceInset={{bottom: 'never'}}>
-					<NavigationContainer
-						ref={navigationRef}
-						theme={{
-							colors: {
-								background: '#ffffff',
-							},
-						}}>
-						<RootStack.Navigator mode="modal">
-							<RootStack.Screen
-								name="Memories"
-								component={MainStackScreen}
-								options={{ headerShown: false }}
-							/>
-							<RootStack.Screen
-								name="Settings"
-								component={Settings}
-								options={{ cardOverlayEnabled: true, gesturesEnabled: true, ...TransitionPresets.ModalPresentationIOS }}
-							/>
-						</RootStack.Navigator>
-					</NavigationContainer>
-					<SettingsButton
-						onPress={() => RootNavigation.navigate('Settings')}
-					/>
-				</SafeAreaView>
+				<NavigationContainer
+					ref={navigationRef}
+					theme={{
+						colors: {
+							background: '#ffffff',
+						},
+					}}>
+					<RootStack.Navigator mode="modal">
+						<RootStack.Screen
+							name="Memories"
+							component={MainStackScreen}
+							options={{headerShown: false}}
+						/>
+						<RootStack.Screen
+							name="Settings"
+							component={Settings}
+							options={{
+								cardOverlayEnabled: true,
+								gesturesEnabled: true,
+								...TransitionPresets.ModalPresentationIOS,
+							}}
+						/>
+					</RootStack.Navigator>
+				</NavigationContainer>
 			</SafeAreaProvider>
 		);
 	}
