@@ -9,6 +9,7 @@ import SafeAreaView from 'react-native-safe-area-view';
 import Calendar from './src/screens/Calendar';
 import Diary from './src/screens/Diary';
 import Memories from './src/screens/Memories';
+
 import Settings from './src/screens/Settings';
 
 import SettingsButton from './src/components/Buttons/SettingsButton';
@@ -27,6 +28,13 @@ const TabBarConfig = {
 	style: {
 		width: 300,
 	},
+};
+
+const ModalConfig = {
+	cardOverlayEnabled: true,
+	headerShown: false,
+	gesturesEnabled: true,
+	...TransitionPresets.ModalPresentationIOS,
 };
 
 const MainStack = createMaterialTopTabNavigator();
@@ -68,11 +76,7 @@ class App extends React.Component {
 						<RootStack.Screen
 							name="Settings"
 							component={Settings}
-							options={{
-								cardOverlayEnabled: true,
-								gesturesEnabled: true,
-								...TransitionPresets.ModalPresentationIOS,
-							}}
+							options={ModalConfig}
 						/>
 					</RootStack.Navigator>
 				</NavigationContainer>

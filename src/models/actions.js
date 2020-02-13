@@ -39,6 +39,8 @@ export function deleteMemory(id) {
 	});
 }
 
+// TODO: Delete all memories
+
 export function memoryToday() {
 	var beginningOfDay = new Date(
 		new Date().setHours(0, 0, 0, 0),

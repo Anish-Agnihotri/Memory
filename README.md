@@ -3,10 +3,10 @@ Tab based todo:
 	- Complete setup
 2. My Diary
 	- Flatlist — make updating async
+	- Fix slide to delete
 3. Memories [DONE]
 4. Settings
-	- App info
-	- Support
+	- Get Support
 	- Themes
 	- Export
 	- Made by
@@ -18,7 +18,6 @@ Tab based todo:
 Overall:
 1. Optimization
 2. Add animations
-5. REBUILD TAB NAVIGATOR
 6. First open process
 7. Push notifications
 8. Rate this app popup, once per open
