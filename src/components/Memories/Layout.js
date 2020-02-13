@@ -61,6 +61,7 @@ export default class MemoryLayout extends React.Component {
 					/>
 				}
 				data={this.state.diaryItems}
+				extraData={this.state}
 				initialNumToRender={5}
 				removeClippedSubviews={false}
 				ListEmptyComponent={

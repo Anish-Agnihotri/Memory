@@ -114,8 +114,8 @@ export default class PlusButton extends React.Component {
 						shadowColor: '#000',
 						shadowOpacity: 0.5,
 						position: 'absolute',
-						bottom: 15,
-						right: 15,
+						bottom: 25,
+						right: 22,
 						transform: [
 							{scaleX: this.props.modal ? scaleReverse : scale},
 							{scaleY: this.props.modal ? scaleReverse : scale},
