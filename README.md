@@ -26,3 +26,8 @@ Overall:
 	- Additional entries
 10. Haptic feedback
 11. Fix dark mode, date picker - isDarkModeEnabled={true}
+
+Today:
+1. Settings menu
+2. Haptic feedback
+3. Fix flatlist updating

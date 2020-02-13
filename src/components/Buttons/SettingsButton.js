@@ -10,7 +10,8 @@ export default class SettingsButton extends React.Component {
 			<SafeAreaConsumer>
 				{insets => (
 					<TouchableOpacity
-						style={[styles.settingsbutton, {top: insets.top + 13}]}>
+						style={[styles.settingsbutton, {top: insets.top + 13}]}
+						onPress={this.props.onPress}>
 						<Image
 							source={settings}
 							style={styles.settingsbuttonimage}

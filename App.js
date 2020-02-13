@@ -1,6 +1,7 @@
 import React from 'react';
 import {StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import SafeAreaView from 'react-native-safe-area-view';
@@ -8,12 +9,12 @@ import SafeAreaView from 'react-native-safe-area-view';
 import Calendar from './src/screens/Calendar';
 import Diary from './src/screens/Diary';
 import Memories from './src/screens/Memories';
+import Settings from './src/screens/Settings';
 
 import SettingsButton from './src/components/Buttons/SettingsButton';
+import {navigationRef} from './src/utils/navigation';
+import * as RootNavigation from './src/utils/navigation';
 
-// TODO: Add Settings button, make indicator smaller width dynamically
-
-const Tab = createMaterialTopTabNavigator();
 const TabBarConfig = {
 	inactiveTintColor: '#718888',
 	activeTintColor: '#024342',
@@ -29,22 +30,50 @@ const TabBarConfig = {
 	},
 };
 
+const MainStack = createMaterialTopTabNavigator();
+const RootStack = createStackNavigator();
+
+function MainStackScreen() {
+	return (
+		<MainStack.Navigator
+			initialRouteName={'Diary'}
+			tabBarOptions={TabBarConfig}>
+			<MainStack.Screen name="My Diary" component={Diary} />
+			<MainStack.Screen name="Calendar" component={Calendar} />
+			<MainStack.Screen name="Memories" component={Memories} />
+		</MainStack.Navigator>
+	);
+}
+
 class App extends React.Component {
 	render() {
 		return (
 			<SafeAreaProvider>
-				<StatusBar backgroundColor="white" barStyle="dark-content" />
+				<StatusBar translucent={true} barStyle="dark-content" />
 				<SafeAreaView style={{flex: 1}} forceInset={{bottom: 'never'}}>
-					<NavigationContainer>
-						<Tab.Navigator
-							initialRouteName={'Diary'}
-							tabBarOptions={TabBarConfig}>
-							<Tab.Screen name="My Diary" component={Diary} />
-							<Tab.Screen name="Calendar" component={Calendar} />
-							<Tab.Screen name="Memories" component={Memories} />
-						</Tab.Navigator>
+					<NavigationContainer
+						ref={navigationRef}
+						theme={{
+							colors: {
+								background: '#ffffff',
+							},
+						}}>
+						<RootStack.Navigator mode="modal">
+							<RootStack.Screen
+								name="Memories"
+								component={MainStackScreen}
+								options={{ headerShown: false }}
+							/>
+							<RootStack.Screen
+								name="Settings"
+								component={Settings}
+								options={{ cardOverlayEnabled: true, gesturesEnabled: true, ...TransitionPresets.ModalPresentationIOS }}
+							/>
+						</RootStack.Navigator>
 					</NavigationContainer>
-					<SettingsButton />
+					<SettingsButton
+						onPress={() => RootNavigation.navigate('Settings')}
+					/>
 				</SafeAreaView>
 			</SafeAreaProvider>
 		);
