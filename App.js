@@ -12,6 +12,8 @@ import Memories from './src/screens/Memories';
 
 import Settings from './src/screens/Settings';
 import ThemeSettings from './src/screens/Settings/ThemeSettings';
+import LegalitySettings from './src/screens/Settings/LegalitySettings';
+import ExportSettings from './src/screens/Settings/ExportSettings';
 
 import SettingsButton from './src/components/Buttons/SettingsButton';
 import {navigationRef} from './src/utils/navigation';
@@ -74,6 +76,16 @@ function ModalStackScreen() {
 			<ModalStack.Screen
 				name="Themes"
 				component={ThemeSettings}
+				options={subModalPageConfig}
+			/>
+			<ModalStack.Screen
+				name="Legal"
+				component={LegalitySettings}
+				options={subModalPageConfig}
+			/>
+			<ModalStack.Screen
+				name="Export"
+				component={ExportSettings}
 				options={subModalPageConfig}
 			/>
 		</ModalStack.Navigator>

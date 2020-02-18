@@ -14,7 +14,7 @@ export default class ExportData extends React.Component {
 				<Text style={styles.descText}>
 					Export your memories in various formats.
 				</Text>
-				<RoundedButton text="See Options" whenPressed={() => RootNavigation.navigate('Themes')}/>
+				<RoundedButton text="See Options" whenPressed={() => RootNavigation.navigate('Export')}/>
 			</>
 		);
 	}

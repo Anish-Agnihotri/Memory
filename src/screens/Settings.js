@@ -5,6 +5,7 @@ import SettingsHeader from '../components/Settings/SettingsHeader';
 import SettingsSection from '../components/Settings/SettingsSection';
 
 import GetSupport from '../components/Settings/Main/GetSupport';
+import Themes from '../components/Settings/Main/Themes';
 import ExportData from '../components/Settings/Main/ExportData';
 import Legal from '../components/Settings/Main/Legal';
 import MadeBy from '../components/Settings/Main/MadeBy';
@@ -14,7 +15,7 @@ export default class Settings extends React.Component {
 	render() {
 		const items = [
 			<GetSupport />,
-			<Text>Themes section</Text>,
+			<Themes />,
 			<ExportData />,
 			<MadeBy />,
 			<Legal />,
