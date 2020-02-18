@@ -11,6 +11,7 @@ import Diary from './src/screens/Diary';
 import Memories from './src/screens/Memories';
 
 import Settings from './src/screens/Settings';
+import ThemeSettings from './src/screens/Settings/ThemeSettings';
 
 import SettingsButton from './src/components/Buttons/SettingsButton';
 import {navigationRef} from './src/utils/navigation';
@@ -37,8 +38,15 @@ const ModalConfig = {
 	...TransitionPresets.ModalPresentationIOS,
 };
 
+const subModalPageConfig = {
+	headerShown: false,
+	gesturesEnabled: true,
+	...TransitionPresets.SlideFromRightIOS,
+};
+
 const MainStack = createMaterialTopTabNavigator();
 const RootStack = createStackNavigator();
+const ModalStack = createStackNavigator();
 
 function MainStackScreen() {
 	return (
@@ -52,6 +60,23 @@ function MainStackScreen() {
 			</MainStack.Navigator>
 			<SettingsButton />
 		</SafeAreaView>
+	);
+}
+
+function ModalStackScreen() {
+	return (
+		<ModalStack.Navigator mode="modal" initialRouteName={'Diary'}>
+			<ModalStack.Screen
+				name="Settings"
+				component={Settings}
+				options={{headerShown: false}}
+			/>
+			<ModalStack.Screen
+				name="Themes"
+				component={ThemeSettings}
+				options={subModalPageConfig}
+			/>
+		</ModalStack.Navigator>
 	);
 }
 
@@ -75,7 +100,7 @@ class App extends React.Component {
 						/>
 						<RootStack.Screen
 							name="Settings"
-							component={Settings}
+							component={ModalStackScreen}
 							options={ModalConfig}
 						/>
 					</RootStack.Navigator>

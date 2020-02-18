@@ -1,16 +1,26 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import * as RootNavigation from '../../utils/navigation';
 
 export default class SettingsHeader extends React.Component {
 	render() {
 		return (
 			<View style={styles.settingsheaderview}>
-				<Text style={styles.settingsheadertext}>Settings</Text>
+				<Text style={styles.settingsheadertext}>
+					{this.props.screenName}
+				</Text>
 				<TouchableOpacity
-					style={styles.settingsheaderbutton}
-					onPress={() => RootNavigation.navigate('Memories')}>
-					<Text style={styles.settingsheaderbuttontext}>Done</Text>
+					style={
+						this.props.closeAll
+							? styles.settingsheaderbutton
+							: styles.settingsheaderbuttonleft
+					}
+					onPress={() =>
+						RootNavigation.navigate(this.props.buttonNavigation)
+					}>
+					<Text style={styles.settingsheaderbuttontext}>
+						{this.props.buttonText}
+					</Text>
 				</TouchableOpacity>
 			</View>
 		);
@@ -43,6 +53,10 @@ const styles = StyleSheet.create({
 	settingsheaderbutton: {
 		position: 'absolute',
 		right: 15,
+	},
+	settingsheaderbuttonleft: {
+		position: 'absolute',
+		left: 15,
 	},
 	settingsheaderbuttontext: {
 		fontSize: 17,

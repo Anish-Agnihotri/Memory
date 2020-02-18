@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, Text, StyleSheet } from 'react-native';
 import RoundedButton from '../../Buttons/RoundedButton';
+import * as RootNavigation from '../../../utils/navigation';
 
 import exporticon from '../../../assets/icons/export.png';
 
@@ -13,7 +14,7 @@ export default class ExportData extends React.Component {
 				<Text style={styles.descText}>
 					Export your memories in various formats.
 				</Text>
-				<RoundedButton text="See Options" />
+				<RoundedButton text="See Options" whenPressed={() => RootNavigation.navigate('Themes')}/>
 			</>
 		);
 	}

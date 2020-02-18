@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import {View, Text, ScrollView, StyleSheet} from 'react-native';
 
 import SettingsHeader from '../components/Settings/SettingsHeader';
 import SettingsSection from '../components/Settings/SettingsSection';
@@ -22,7 +22,12 @@ export default class Settings extends React.Component {
 		];
 		return (
 			<View style={styles.settingsContainer}>
-				<SettingsHeader />
+				<SettingsHeader
+					screenName="Settings"
+					buttonText="Close"
+					buttonNavigation="Memories"
+					closeAll={true}
+				/>
 				<ScrollView style={styles.marginfix}>
 					{items.map((data, idx) => {
 						return (

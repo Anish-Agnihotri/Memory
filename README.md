@@ -11,8 +11,8 @@ Tab based todo:
 	- Export
 	- Made by [DONE]
 	- Legal stuff
-	- Version information
-	- Delete all data
+	- Version data
+	- Delete all data [DONE]
 
 
 Overall:
@@ -26,8 +26,8 @@ Overall:
 10. Haptic feedback
 11. Fix dark mode, date picker - isDarkModeEnabled={true}
 12. Pull metadata from photos
+13. Fix back icons
 
-Today:
-1. Settings menu
-2. Haptic feedback
-3. Fix flatlist updating
+Up next:
+1. Calendar
+3. Remove slide to delete
