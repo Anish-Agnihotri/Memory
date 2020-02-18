@@ -1,81 +1,48 @@
 import React from 'react';
-import { View, Text, Alert, Image, StyleSheet, Dimensions } from 'react-native';
-import { deleteMemory } from '../../models/actions';
-import { imagePath } from '../../utils/helpers';
-import Swipeable from 'react-native-swipeable-row';
-import trash from '../../assets/icons/trash.png';
+import {View, Text, Image, StyleSheet, Dimensions} from 'react-native';
+import {imagePath} from '../../utils/helpers';
 
 let window = Dimensions.get('window');
 
 export default class MemoryItem extends React.Component {
-	deleteLifeCycle = () => {
-		deleteMemory(this.props.id);
-		this.props.runRefresh();
-	};
-	deleteItem = () => {
-		Alert.alert(
-			'Delete memory',
-			'Are you sure you wish to delete this memory?',
-			[
-				{
-					text: 'Cancel',
-					style: 'cancel',
-				},
-				{
-					text: 'Delete',
-					style: 'destructive',
-					onPress: () => this.deleteLifeCycle(),
-				},
-			]
-		);
-	};
 	render() {
-		const leftContent = <Image style={styles.delete} source={trash} />;
 		return (
-			<Swipeable
-				leftContent={leftContent}
-				leftActionActivationDistance={60}
-				onLeftActionRelease={this.deleteItem}
-				disable={this.props.isMemoryLayout ? true : false}>
-				<View style={styles.memoryitem}>
-					<Text style={styles.memorydate}>{this.props.date}</Text>
-					<Text style={styles.memorytitle}>{this.props.title}</Text>
-					{this.props.image !== null ? (
-						<View style={styles.imagecomponent}>
-							<Image
-								style={styles.memoryimage}
-								source={{
-									isStatic: true,
-									uri: `${imagePath(this.props.image)}`,
-								}}
-							/>
+			<View style={styles.memoryitem}>
+				<Text style={styles.memorydate}>{this.props.date}</Text>
+				<Text style={styles.memorytitle}>{this.props.title}</Text>
+				{this.props.image !== null ? (
+					<View style={styles.imagecomponent}>
+						<Image
+							style={styles.memoryimage}
+							source={{
+								isStatic: true,
+								uri: `${imagePath(this.props.image)}`,
+							}}
+						/>
+					</View>
+				) : null}
+				{this.props.entry !== '' ? (
+					<Text style={styles.memoryentry}>{this.props.entry}</Text>
+				) : null}
+				<View style={styles.wrapfix}>
+					{this.props.isSpecial ? (
+						<View style={styles.specialemotion}>
+							<Text style={styles.specialemotiontext}>
+								⭐ Special
+							</Text>
 						</View>
 					) : null}
-					{this.props.entry !== '' ? (
-						<Text style={styles.memoryentry}>
-							{this.props.entry}
-						</Text>
-					) : null}
-					<View style={styles.wrapfix}>
-						{this.props.isSpecial ? (
-							<View style={styles.specialemotion}>
-								<Text style={styles.specialemotiontext}>
-									⭐ Special
+					{this.props.emotion.map((data, idx) => {
+						return (
+							<View key={idx} style={styles.memoryemotion}>
+								<Text style={styles.memoryemotiontext}>
+									{data.emoji} {data.emotion}
 								</Text>
 							</View>
-						) : null}
-						{this.props.emotion.map((data, idx) => {
-							return (
-								<View key={idx} style={styles.memoryemotion}>
-									<Text style={styles.memoryemotiontext}>
-										{data.emoji} {data.emotion}
-									</Text>
-								</View>
-							);
-						})}
-					</View>
+						);
+					})}
 				</View>
-			</Swipeable>
+			</View>
 		);
 	}
 }

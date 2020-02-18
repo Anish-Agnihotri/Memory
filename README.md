@@ -3,7 +3,6 @@ Tab based todo:
 	- Complete setup
 2. My Diary
 	- Flatlist — make updating async
-	- Fix slide to delete
 3. Memories [DONE]
 4. Settings
 	- Get Support [DONE]
@@ -13,7 +12,6 @@ Tab based todo:
 	- Legal stuff
 	- Version data
 	- Delete all data [DONE]
-
 
 Overall:
 1. Optimization

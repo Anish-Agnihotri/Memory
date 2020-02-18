@@ -30,7 +30,6 @@
     "react-native-safe-area-view": "^1.0.0",
     "react-native-screens": "^2.0.0-beta.2",
     "react-native-static-safe-area-insets": "^2.0.0",
-    "react-native-swipeable-row": "^0.8.1",
     "react-native-tab-view": "^2.13.0",
     "realm": "^4.0.0-beta.0"
   },

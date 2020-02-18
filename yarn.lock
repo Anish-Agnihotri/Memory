@@ -5726,13 +5726,6 @@ react-native-static-safe-area-insets@^2.0.0:
   resolved "https://registry.yarnpkg.com/react-native-static-safe-area-insets/-/react-native-static-safe-area-insets-2.0.0.tgz#3a00e77e00cf2b80227c179359f1856971069da8"
   integrity sha512-ZHBRIZ8fzTOcgHEhUcCXkMMyzjkU/aieY60im5QJq9GiqO2ACJ254guV06w/HYlUH6EpWoEvpRzt3CDu1qIiDw==
 
-react-native-swipeable-row@^0.8.1:
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/react-native-swipeable-row/-/react-native-swipeable-row-0.8.1.tgz#6076ab2568c36cd96bc73882470598cfac3b20c9"
-  integrity sha512-DMarMMIPihwIyOlYtym2VwzCUvciDefrb38JEMHvHXUwoKhWGQgfYoBi1csYYHeg/AawBr1Oel2W1rowV4ixUA==
-  dependencies:
-    prop-types "^15.5.10"
-
 react-native-tab-view@^2.13.0:
   version "2.13.0"
   resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-2.13.0.tgz#23037aa43b0f8f682ddc20415a4baaaf6f82ae8f"
