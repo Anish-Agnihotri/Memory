@@ -6,10 +6,10 @@ Tab based todo:
 	- Fix slide to delete
 3. Memories [DONE]
 4. Settings
-	- Get Support
+	- Get Support [DONE]
 	- Themes
 	- Export
-	- Made by
+	- Made by [DONE]
 	- Legal stuff
 	- Version information
 	- Delete all data

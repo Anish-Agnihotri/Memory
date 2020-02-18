@@ -39,7 +39,12 @@ export function deleteMemory(id) {
 	});
 }
 
-// TODO: Delete all memories
+export function deleteAllMemories() {
+	memory_storage.write(() => {
+		var allMemories = memory_storage.objects('Memory');
+		memory_storage.delete(allMemories);
+	});
+}
 
 export function memoryToday() {
 	var beginningOfDay = new Date(

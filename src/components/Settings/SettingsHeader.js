@@ -27,10 +27,12 @@ const styles = StyleSheet.create({
 			width: 0,
 			height: 1.5,
 		},
-		shadowOpacity: 0.07,
+		shadowOpacity: 0.05,
 		shadowRadius: 1.62,
 		elevation: 2,
 		textAlign: 'center',
+		borderBottomWidth: 1,
+		borderBottomColor: '#00000020',
 	},
 	settingsheadertext: {
 		color: '#000',
