@@ -27,7 +27,7 @@ Overall:
 11. Fix dark mode, date picker - isDarkModeEnabled={true}
 12. Pull metadata from photos
 13. Fix back icons
+14. check for console logs and redundant helper functions
 
 Up next:
 1. Calendar
-3. Remove slide to delete

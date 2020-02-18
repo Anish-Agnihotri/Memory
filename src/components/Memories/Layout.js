@@ -40,6 +40,9 @@ export default class MemoryLayout extends React.Component {
 	componentDidMount() {
 		this.updateDiaryItems();
 	}
+	componentDidUpdate() {
+		() => this.updateDiaryItems();
+	}
 	render() {
 		return (
 			<FlatList
@@ -61,7 +64,6 @@ export default class MemoryLayout extends React.Component {
 					/>
 				}
 				data={this.state.diaryItems}
-				extraData={this.state}
 				initialNumToRender={5}
 				removeClippedSubviews={false}
 				ListEmptyComponent={

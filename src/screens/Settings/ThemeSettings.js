@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import SettingsHeader from '../../components/Settings/SettingsHeader';
 
 export default class ThemeSettings extends React.Component {

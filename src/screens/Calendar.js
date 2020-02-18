@@ -1,11 +1,13 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import {View, StyleSheet} from 'react-native';
+
+import CalendarLayout from '../components/Calendar/CalendarLayout';
 
 export default class Calendar extends React.Component {
 	render() {
 		return (
 			<View style={styles.calendarview}>
-				<Text>Calendar</Text>
+				<CalendarLayout />
 			</View>
 		);
 	}
