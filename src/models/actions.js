@@ -1,4 +1,4 @@
-import {memory_storage} from './memory_service';
+import { memory_storage } from './memory_service';
 
 export function addMemory(title, date, entry, image, isSpecial, emotions) {
 	memory_storage.write(() => {
@@ -43,7 +43,7 @@ export function deleteMemory(id) {
 
 export function memoryToday() {
 	var beginningOfDay = new Date(
-		new Date().setHours(0, 0, 0, 0),
+		new Date().setHours(0, 0, 0, 0)
 	).toISOString();
 	var currentTime = new Date();
 

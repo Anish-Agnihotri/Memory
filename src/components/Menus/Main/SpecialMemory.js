@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Switch, StyleSheet} from 'react-native';
+import { View, Text, Switch, StyleSheet } from 'react-native';
 
 export default class SpecialMemory extends React.Component {
 	render() {
@@ -10,7 +10,7 @@ export default class SpecialMemory extends React.Component {
 					style={styles.switchSelf}
 					onValueChange={this.props.onToggle}
 					value={this.props.toggleValue}
-					trackColor={{true: '#006565'}}
+					trackColor={{ true: '#006565' }}
 				/>
 			</View>
 		);

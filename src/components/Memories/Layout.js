@@ -1,11 +1,11 @@
 import React from 'react';
-import {View, FlatList, RefreshControl} from 'react-native';
+import { View, FlatList, RefreshControl } from 'react-native';
 import MemoryItem from './Items';
 import Placeholder from './Placeholder';
 import NoMemoryToday from './NoMemoryToday';
 
-import {returnMemories, memoryToday} from '../../models/actions';
-import {returnEmotionInfo, memoryDateFormat} from '../../utils/helpers';
+import { returnMemories, memoryToday } from '../../models/actions';
+import { returnEmotionInfo, memoryDateFormat } from '../../utils/helpers';
 
 export default class MemoryLayout extends React.Component {
 	constructor() {
@@ -45,7 +45,7 @@ export default class MemoryLayout extends React.Component {
 			<FlatList
 				ListHeaderComponent={
 					<>
-						<View style={{paddingTop: 10}} />
+						<View style={{ paddingTop: 10 }} />
 						{this.state.showMemoryTodayItem ? (
 							<NoMemoryToday
 								toggleModal={this.props.toggleModal}
@@ -53,7 +53,7 @@ export default class MemoryLayout extends React.Component {
 						) : null}
 					</>
 				}
-				ListFooterComponent={<View style={{paddingBottom: 5}} />}
+				ListFooterComponent={<View style={{ paddingBottom: 5 }} />}
 				refreshControl={
 					<RefreshControl
 						refreshing={this.state.refreshing}
@@ -67,7 +67,7 @@ export default class MemoryLayout extends React.Component {
 				ListEmptyComponent={
 					<Placeholder isMemoriesPage={this.props.memories} />
 				}
-				renderItem={({item}) => (
+				renderItem={({ item }) => (
 					<MemoryItem
 						id={item.id}
 						date={memoryDateFormat(item.date)}

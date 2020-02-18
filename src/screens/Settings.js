@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, ScrollView, StyleSheet} from 'react-native';
+import { View, Text, ScrollView, StyleSheet } from 'react-native';
 
 import SettingsHeader from '../components/Settings/SettingsHeader';
 import SettingsSection from '../components/Settings/SettingsSection';
@@ -29,7 +29,7 @@ export default class Settings extends React.Component {
 							<SettingsSection key={idx}>{data}</SettingsSection>
 						);
 					})}
-				<View style={styles.bottompad} />
+					<View style={styles.bottompad} />
 				</ScrollView>
 			</View>
 		);

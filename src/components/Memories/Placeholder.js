@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Image, Text, StyleSheet, Dimensions} from 'react-native';
+import { View, Image, Text, StyleSheet, Dimensions } from 'react-native';
 
 let height = Dimensions.get('window').height;
 
@@ -28,7 +28,9 @@ export default class Placeholder extends React.Component {
 						: 'No diary entries found'}
 				</Text>
 				<Text style={styles.placeholderdesc}>
-					{this.props.isMemoriesPage ? 'Select keep, when adding a diary entry, to save special memories!' : 'Get started by creating a new diary entry and capture your memories!'}
+					{this.props.isMemoriesPage
+						? 'Select keep, when adding a diary entry, to save special memories!'
+						: 'Get started by creating a new diary entry and capture your memories!'}
 				</Text>
 			</View>
 		);

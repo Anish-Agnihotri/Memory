@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableOpacity, Text, StyleSheet} from 'react-native';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
 export default class MenuButton extends React.Component {
 	render() {
@@ -11,7 +11,9 @@ export default class MenuButton extends React.Component {
 				]}
 				onPress={this.props.disabled ? null : this.props.onPress}>
 				{this.props.processActive ? (
-					<Text style={styles.buttontext}>{this.props.processText}</Text>
+					<Text style={styles.buttontext}>
+						{this.props.processText}
+					</Text>
 				) : (
 					<Text style={styles.buttontext}>{this.props.text}</Text>
 				)}

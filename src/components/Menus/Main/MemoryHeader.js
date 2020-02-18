@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
-import {dateFormat} from '../../../utils/helpers';
+import { dateFormat } from '../../../utils/helpers';
 
 export default class MemoryHeader extends React.Component {
 	constructor() {
@@ -12,14 +12,14 @@ export default class MemoryHeader extends React.Component {
 		};
 	}
 	showDatePicker = () => {
-		this.setState({isDatePickerVisible: true});
+		this.setState({ isDatePickerVisible: true });
 	};
 	hideDatePicker = () => {
-		this.setState({isDatePickerVisible: false});
+		this.setState({ isDatePickerVisible: false });
 	};
 	handleConfirm = date => {
 		this.props.dateUpdate(date);
-		this.setState({isDatePickerVisible: false});
+		this.setState({ isDatePickerVisible: false });
 	};
 	render() {
 		return (

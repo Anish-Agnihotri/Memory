@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import * as RootNavigation from '../../utils/navigation';
 
 export default class SettingsHeader extends React.Component {

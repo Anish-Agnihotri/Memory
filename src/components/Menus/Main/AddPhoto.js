@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Image, TouchableOpacity, Text, StyleSheet} from 'react-native';
+import { View, Image, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 
 export default class AddPhoto extends React.Component {
@@ -29,7 +29,7 @@ export default class AddPhoto extends React.Component {
 			if (response.didCancel || response.error) {
 				this.props.updateProcessActive();
 			} else if (!response.didCancel && !response.error) {
-				let source = {uri: response.uri};
+				let source = { uri: response.uri };
 				console.log(source);
 				this.props.addImage(source);
 				this.props.updateProcessActive();

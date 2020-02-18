@@ -25,6 +25,7 @@ Overall:
 	- Additional entries
 10. Haptic feedback
 11. Fix dark mode, date picker - isDarkModeEnabled={true}
+12. Pull metadata from photos
 
 Today:
 1. Settings menu

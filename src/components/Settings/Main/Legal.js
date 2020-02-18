@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, Text, StyleSheet} from 'react-native';
+import { Image, Text, StyleSheet } from 'react-native';
 import RoundedButton from '../../Buttons/RoundedButton';
 
 import legal from '../../../assets/icons/legal.png';

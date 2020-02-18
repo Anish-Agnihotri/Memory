@@ -1,5 +1,5 @@
 import moment from 'moment';
-import {emotions} from './emotions';
+import { emotions } from './emotions';
 import RNFS from 'react-native-fs';
 
 export function returnEmotionInfo(emotionArray) {

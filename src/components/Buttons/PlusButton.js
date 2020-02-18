@@ -110,16 +110,20 @@ export default class PlusButton extends React.Component {
 						height: 60,
 						borderRadius: 50,
 						backgroundColor: '#006565',
-						shadowOffset: {width: 0, height: 2},
+						shadowOffset: { width: 0, height: 2 },
 						shadowColor: '#000',
 						shadowOpacity: 0.5,
 						position: 'absolute',
 						bottom: 25,
 						right: 22,
 						transform: [
-							{scaleX: this.props.modal ? scaleReverse : scale},
-							{scaleY: this.props.modal ? scaleReverse : scale},
-							{translateY: this.props.modal ? moveReverse : move},
+							{ scaleX: this.props.modal ? scaleReverse : scale },
+							{ scaleY: this.props.modal ? scaleReverse : scale },
+							{
+								translateY: this.props.modal
+									? moveReverse
+									: move,
+							},
 						],
 					}}
 					onPressIn={this.togglePressed}

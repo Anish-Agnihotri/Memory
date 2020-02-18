@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, Text, Alert, Image, StyleSheet, Dimensions} from 'react-native';
-import {deleteMemory} from '../../models/actions';
-import {imagePath} from '../../utils/helpers';
+import { View, Text, Alert, Image, StyleSheet, Dimensions } from 'react-native';
+import { deleteMemory } from '../../models/actions';
+import { imagePath } from '../../utils/helpers';
 import Swipeable from 'react-native-swipeable-row';
 import trash from '../../assets/icons/trash.png';
 
@@ -26,7 +26,7 @@ export default class MemoryItem extends React.Component {
 					style: 'destructive',
 					onPress: () => this.deleteLifeCycle(),
 				},
-			],
+			]
 		);
 	};
 	render() {

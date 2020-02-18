@@ -4,7 +4,14 @@ import {TouchableOpacity, Text, StyleSheet} from 'react-native';
 export default class RoundedButton extends React.Component {
 	render() {
 		return (
-			<TouchableOpacity style={[styles.roundedbutton, this.props.isDangerous ? {backgroundColor: '#cc0000'} : {backgroundColor: '#006565'}]}>
+			<TouchableOpacity
+				style={[
+					styles.roundedbutton,
+					this.props.isDangerous
+						? {backgroundColor: '#cc0000'}
+						: {backgroundColor: '#006565'},
+				]}
+				onPress={this.props.whenPressed}>
 				<Text style={styles.roundedbuttontext}>{this.props.text}</Text>
 			</TouchableOpacity>
 		);

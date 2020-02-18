@@ -3,13 +3,13 @@ export const memory_schema = [
 		name: 'Memory',
 		primaryKey: 'id',
 		properties: {
-			id: {type: 'int', indexed: true},
+			id: { type: 'int', indexed: true },
 			title: 'string',
 			date: 'date',
-			entry: {type: 'string', optional: true},
+			entry: { type: 'string', optional: true },
 			isSpecial: 'bool',
 			emotion: 'int?[]',
-			image: {type: 'string', optional: true},
+			image: { type: 'string', optional: true },
 		},
 	},
 ];
