@@ -1,6 +1,7 @@
-<p align="center">**:warning: Warning: Memory is currently a Work-In-Progress (WIP), as a hobby project of [@anish-agnihotri](https://github.com/anish-agnihotri). Until first release to App Store, project may not be buildable or feature-complete.**</p>
+<p align="center"><img src="https://i.imgur.com/eXVNu40.png" alt="Memory header"/></p>
+<p align="center"><strong>:warning: Warning: Memory is currently a Work-In-Progress (WIP), as a hobby project of [@anish-agnihotri](https://github.com/anish-agnihotri). Until first release to App Store, project may not be buildable or feature-complete.</strong></p>
 
-## Memory?
+## Memory
 Memory is an iOS-first application that lets you add diary entries, track your mood, and most of all, save your favourite memories. The best way to brighten up a bad day is to think back to good times—and memory let's you do **exactly that**.
 
 It's really simple:
