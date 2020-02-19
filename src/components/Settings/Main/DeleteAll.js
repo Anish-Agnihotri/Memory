@@ -2,10 +2,16 @@ import React from 'react';
 import {Image, Text, StyleSheet, Alert} from 'react-native';
 import RoundedButton from '../../Buttons/RoundedButton';
 import {deleteAllMemories} from '../../../models/actions';
+import * as RootNavigation from '../../../utils/navigation';
 
 import deleteicon from '../../../assets/icons/delete.png';
 
 export default class DeleteAll extends React.Component {
+	deleteAndClose = () => {
+		deleteAllMemories();
+		this.props.toggleGlobalRefresh();
+		RootNavigation.navigate('Memories');
+	};
 	deleteAll = () => {
 		Alert.alert(
 			'Delete all memories',
@@ -18,7 +24,7 @@ export default class DeleteAll extends React.Component {
 				{
 					text: 'Delete',
 					style: 'destructive',
-					onPress: () => deleteAllMemories(),
+					onPress: () => this.deleteAndClose(),
 				},
 			],
 		);

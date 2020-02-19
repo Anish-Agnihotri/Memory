@@ -19,6 +19,7 @@
     "moment": "^2.24.0",
     "react": "16.9.0",
     "react-native": "0.61.5",
+    "react-native-calendar-strip": "^1.4.1",
     "react-native-calendars": "^1.261.0",
     "react-native-fs": "^2.16.4",
     "react-native-gesture-handler": "^1.5.6",

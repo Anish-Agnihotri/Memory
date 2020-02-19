@@ -19,7 +19,7 @@ export default class Settings extends React.Component {
 			<ExportData />,
 			<MadeBy />,
 			<Legal />,
-			<DeleteAll />,
+			<DeleteAll toggleGlobalRefresh={this.props.toggleGlobalRefresh} />,
 		];
 		return (
 			<View style={styles.settingsContainer}>

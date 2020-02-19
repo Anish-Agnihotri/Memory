@@ -58,15 +58,18 @@ const styles = StyleSheet.create({
 	header: {
 		fontSize: 20,
 		marginLeft: 10,
+		fontWeight: '500',
 	},
 	datebutton: {
 		marginLeft: 3,
 		borderBottomWidth: 1,
 		borderColor: '#006565',
 		paddingBottom: 2,
+		fontWeight: '500',
 	},
 	headerText: {
 		fontSize: 20,
 		color: '#000',
+		fontWeight: '500',
 	},
 });

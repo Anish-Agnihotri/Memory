@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, FlatList, RefreshControl } from 'react-native';
+import {View, FlatList, RefreshControl} from 'react-native';
 import MemoryItem from './Items';
 import Placeholder from './Placeholder';
 import NoMemoryToday from './NoMemoryToday';
 
-import { returnMemories, memoryToday } from '../../models/actions';
-import { returnEmotionInfo, memoryDateFormat } from '../../utils/helpers';
+import {returnMemories, memoryToday} from '../../models/actions';
+import {returnEmotionInfo, memoryDateFormat} from '../../utils/helpers';
 
 export default class MemoryLayout extends React.Component {
 	constructor() {
@@ -19,6 +19,7 @@ export default class MemoryLayout extends React.Component {
 
 		this.flatList = React.createRef();
 	}
+
 	updateDiaryItems = () => {
 		var value = returnMemories(this.props.memories);
 
@@ -37,18 +38,20 @@ export default class MemoryLayout extends React.Component {
 			showMemoryTodayItem: showMemoryTodayItem,
 		});
 	};
+
 	componentDidMount() {
 		this.updateDiaryItems();
 	}
-	componentDidUpdate() {
-		() => this.updateDiaryItems();
+	UNSAFE_componentWillReceiveProps() {
+		this.updateDiaryItems();
 	}
 	render() {
 		return (
 			<FlatList
+				data={this.state.diaryItems}
 				ListHeaderComponent={
 					<>
-						<View style={{ paddingTop: 10 }} />
+						<View style={{paddingTop: 10}} />
 						{this.state.showMemoryTodayItem ? (
 							<NoMemoryToday
 								toggleModal={this.props.toggleModal}
@@ -56,20 +59,18 @@ export default class MemoryLayout extends React.Component {
 						) : null}
 					</>
 				}
-				ListFooterComponent={<View style={{ paddingBottom: 5 }} />}
+				ListFooterComponent={<View style={{paddingBottom: 5}} />}
 				refreshControl={
 					<RefreshControl
 						refreshing={this.state.refreshing}
 						onRefresh={this.updateDiaryItems}
 					/>
 				}
-				data={this.state.diaryItems}
 				initialNumToRender={5}
-				removeClippedSubviews={false}
 				ListEmptyComponent={
 					<Placeholder isMemoriesPage={this.props.memories} />
 				}
-				renderItem={({ item }) => (
+				renderItem={({item}) => (
 					<MemoryItem
 						id={item.id}
 						date={memoryDateFormat(item.date)}

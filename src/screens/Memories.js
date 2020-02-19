@@ -6,7 +6,10 @@ export default class Memories extends React.Component {
 	render() {
 		return (
 			<View style={styles.memoriesContainer}>
-				<MemoryLayout memories={true} />
+				<MemoryLayout
+					memories={true}
+					globalLayoutRefresh={this.props.globalLayoutRefresh}
+				/>
 			</View>
 		);
 	}

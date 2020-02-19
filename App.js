@@ -50,49 +50,91 @@ const MainStack = createMaterialTopTabNavigator();
 const RootStack = createStackNavigator();
 const ModalStack = createStackNavigator();
 
-function MainStackScreen() {
-	return (
-		<SafeAreaView style={{flex: 1}} forceInset={{bottom: 'never'}}>
-			<MainStack.Navigator
-				initialRouteName={'Diary'}
-				tabBarOptions={TabBarConfig}>
-				<MainStack.Screen name="My Diary" component={Diary} />
-				<MainStack.Screen name="Calendar" component={Calendar} />
-				<MainStack.Screen name="Memories" component={Memories} />
-			</MainStack.Navigator>
-			<SettingsButton />
-		</SafeAreaView>
-	);
+class MainStackScreen extends React.Component {
+	render() {
+		return (
+			<SafeAreaView style={{flex: 1}} forceInset={{bottom: 'never'}}>
+				<MainStack.Navigator
+					initialRouteName={'Diary'}
+					tabBarOptions={TabBarConfig}>
+					<MainStack.Screen name="My Diary">
+						{() => (
+							<Diary
+								globalLayoutRefresh={
+									this.props.globalLayoutRefresh
+								}
+								toggleGlobalRefresh={
+									this.props.toggleGlobalRefresh
+								}
+							/>
+						)}
+					</MainStack.Screen>
+					<MainStack.Screen name="Calendar" component={Calendar} />
+					<MainStack.Screen name="Memories">
+						{() => (
+							<Memories
+								globalLayoutRefresh={
+									this.props.globalLayoutRefresh
+								}
+								toggleGlobalRefresh={
+									this.props.toggleGlobalRefresh
+								}
+							/>
+						)}
+					</MainStack.Screen>
+				</MainStack.Navigator>
+				<SettingsButton />
+			</SafeAreaView>
+		);
+	}
 }
 
-function ModalStackScreen() {
-	return (
-		<ModalStack.Navigator mode="modal" initialRouteName={'Diary'}>
-			<ModalStack.Screen
-				name="Settings"
-				component={Settings}
-				options={{headerShown: false}}
-			/>
-			<ModalStack.Screen
-				name="Themes"
-				component={ThemeSettings}
-				options={subModalPageConfig}
-			/>
-			<ModalStack.Screen
-				name="Legal"
-				component={LegalitySettings}
-				options={subModalPageConfig}
-			/>
-			<ModalStack.Screen
-				name="Export"
-				component={ExportSettings}
-				options={subModalPageConfig}
-			/>
-		</ModalStack.Navigator>
-	);
+class ModalStackScreen extends React.Component {
+	render() {
+		return (
+			<ModalStack.Navigator mode="modal" initialRouteName={'Diary'}>
+				<ModalStack.Screen
+					name="Settings"
+					options={{headerShown: false}}>
+					{() => (
+						<Settings
+							toggleGlobalRefresh={this.props.toggleGlobalRefresh}
+						/>
+					)}
+				</ModalStack.Screen>
+				<ModalStack.Screen
+					name="Themes"
+					component={ThemeSettings}
+					options={subModalPageConfig}
+				/>
+				<ModalStack.Screen
+					name="Legal"
+					component={LegalitySettings}
+					options={subModalPageConfig}
+				/>
+				<ModalStack.Screen
+					name="Export"
+					component={ExportSettings}
+					options={subModalPageConfig}
+				/>
+			</ModalStack.Navigator>
+		);
+	}
 }
 
 class App extends React.Component {
+	constructor() {
+		super();
+
+		this.state = {
+			globalLayoutRefresh: false,
+		};
+	}
+	toggleGlobalRefresh = () => {
+		this.setState(previous => ({
+			globalLayoutRefresh: !previous.globalLayoutRefresh,
+		}));
+	};
 	render() {
 		return (
 			<SafeAreaProvider>
@@ -107,14 +149,30 @@ class App extends React.Component {
 					<RootStack.Navigator mode="modal">
 						<RootStack.Screen
 							name="Memories"
-							component={MainStackScreen}
-							options={{headerShown: false}}
-						/>
-						<RootStack.Screen
-							name="Settings"
-							component={ModalStackScreen}
-							options={ModalConfig}
-						/>
+							options={{headerShown: false}}>
+							{() => (
+								<MainStackScreen
+									globalLayoutRefresh={
+										this.state.globalLayoutRefresh
+									}
+									toggleGlobalRefresh={
+										this.toggleGlobalRefresh
+									}
+								/>
+							)}
+						</RootStack.Screen>
+						<RootStack.Screen name="Settings" options={ModalConfig}>
+							{() => (
+								<ModalStackScreen
+									globalLayoutRefresh={
+										this.state.globalLayoutRefresh
+									}
+									toggleGlobalRefresh={
+										this.toggleGlobalRefresh
+									}
+								/>
+							)}
+						</RootStack.Screen>
 					</RootStack.Navigator>
 				</NavigationContainer>
 			</SafeAreaProvider>

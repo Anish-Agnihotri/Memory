@@ -68,6 +68,7 @@ export default class MainMenu extends React.Component {
 			this.state.isSpecial,
 			this.state.emotion
 		);
+		this.props.toggleGlobalRefresh();
 		this.props.toggleModal();
 	}
 	render() {

@@ -2,8 +2,9 @@ Tab based todo:
 1. Calendar
 	- Complete setup
 2. My Diary
-	- Flatlist — make updating async
-3. Memories [DONE]
+	- Flatlist — make updating async **HARD**
+3. Memories
+	- Fix placeholder image thickness
 4. Settings
 	- Get Support [DONE]
 	- Themes
