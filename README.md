@@ -1,4 +1,4 @@
-<p align="center"><img src="https://i.imgur.com/eXVNu40.png" alt="Memory header"/></p>
+<p align="center"><img src="https://i.imgur.com/OFb2npX.png" alt="Memory header"/></p>
 <p align="center"><strong>:warning: Warning: Memory is currently a Work-In-Progress (WIP), as a hobby project of [@anish-agnihotri](https://github.com/anish-agnihotri). Until first release to App Store, project may not be buildable or feature-complete.</strong></p>
 
 ## Memory
