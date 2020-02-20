@@ -19,14 +19,18 @@ import SettingsButton from './src/components/Buttons/SettingsButton';
 import {navigationRef} from './src/utils/navigation';
 
 const TabBarConfig = {
-	inactiveTintColor: '#718888',
-	activeTintColor: '#024342',
+	inactiveTintColor: '#009999',
+	activeTintColor: '#fff',
 	labelStyle: {
 		fontWeight: '700',
 	},
 	indicatorStyle: {
-		backgroundColor: '#006565',
-		height: 2.5,
+		backgroundColor: '#fff',
+		height: 5,
+		width: 5,
+		marginBottom: 7.5,
+		borderRadius: 10,
+		marginLeft: 47.5,
 	},
 	style: {
 		width: 300,
@@ -143,7 +147,7 @@ class App extends React.Component {
 					ref={navigationRef}
 					theme={{
 						colors: {
-							background: '#ffffff',
+							background: '#006565',
 						},
 					}}>
 					<RootStack.Navigator mode="modal">

@@ -1,10 +1,9 @@
 Tab based todo:
 1. Calendar
 	- Complete setup
-2. My Diary
-	- Flatlist — make updating async **HARD**
-3. Memories
-	- Fix placeholder image thickness
+2. Diary
+	- Editing items
+3. Memory [DONE]
 4. Settings
 	- Get Support [DONE]
 	- Themes
@@ -27,6 +26,9 @@ Overall:
 12. Pull metadata from photos
 13. Fix back icons
 14. check for console logs and redundant helper functions
+15. HEAVY Documentation
+16. settings icon color
 
-Up next:
-1. Calendar
+Post-launch: 
+1. Diary
+	- Editing items
