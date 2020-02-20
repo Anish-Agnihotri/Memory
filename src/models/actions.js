@@ -1,4 +1,4 @@
-import { memory_storage } from './memory_service';
+import {memory_storage} from './memory_service';
 
 export function addMemory(title, date, entry, image, isSpecial, emotions) {
 	memory_storage.write(() => {
@@ -30,6 +30,18 @@ export function returnMemories(onlySpecial) {
 	}
 }
 
+export function returnOnlyMemoryDates() {
+	let returnedDates = [];
+	let memories = memory_storage.objects('Memory');
+	for (let i = 0; i < memories.length; i++) {
+		returnedDates.push({
+			date: memories[i].date,
+			dots: [{key: i, color: '#FF836B', selectedDotColor: '#FF836B'}],
+		});
+	}
+	return returnedDates;
+}
+
 export function deleteMemory(id) {
 	memory_storage.write(() => {
 		var object = memory_storage.objectForPrimaryKey('Memory', id);
@@ -48,7 +60,7 @@ export function deleteAllMemories() {
 
 export function memoryToday() {
 	var beginningOfDay = new Date(
-		new Date().setHours(0, 0, 0, 0)
+		new Date().setHours(0, 0, 0, 0),
 	).toISOString();
 	var currentTime = new Date();
 

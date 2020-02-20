@@ -1,24 +1,48 @@
 import React from 'react';
-// import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 import CalendarStrip from 'react-native-calendar-strip';
-import {View, Text, StyleSheet} from 'react-native';
-import moment from 'moment';
+import {View, StyleSheet} from 'react-native';
+
+import {returnOnlyMemoryDates} from '../../models/actions';
+
+const daySelectAnimation = {
+	type: 'background',
+	duration: 200,
+	highlightColor: '#ffffff',
+};
 
 export default class CalendarLayout extends React.Component {
+	constructor() {
+		super();
+
+		this.state = {
+			markedDates: [],
+		};
+	}
+	updateMarkedDates = () => {
+		this.setState({
+			markedDates: returnOnlyMemoryDates(),
+		});
+	};
+	componentDidMount() {
+		this.updateMarkedDates();
+	}
 	render() {
 		return (
 			<View>
 				<CalendarStrip
 					style={styles.calendarStrip}
+					markedDates={this.state.markedDates}
 					calendarHeaderStyle={styles.calendarStripHeader}
-					calendarHeaderContainerStyle={styles.calendarStripHeaderContainer}
+					calendarHeaderContainerStyle={
+						styles.calendarStripHeaderContainer
+					}
 					highlightDateNameStyle={styles.highlightedDateName}
 					highlightDateNumberStyle={styles.highlightedDateNumber}
 					dateNameStyle={styles.disabledDateName}
 					dateNumberStyle={styles.disabledDateNumber}
 					calendarColor={'#cde4e4'}
 					calendarHeaderPosition={'above'}
-					daySelectionAnimation={{type: 'background', duration: 200, highlightColor: '#fff'}}
+					daySelectionAnimation={daySelectAnimation}
 				/>
 			</View>
 		);
