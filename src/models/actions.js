@@ -49,6 +49,26 @@ export function returnOnlyMemoryDates() {
 	return returnedDates;
 }
 
+export function returnMonthlyMemories(startDate, endDate) {
+	let filteredMemories = memory_storage
+		.objects('Memory')
+		.filtered('date >= $0 && date < $1', startDate, endDate);
+	let returnedEmotions = new Map();
+
+	for (let i = 1; i < 19; i++) {
+		returnedEmotions.set(i, {val: 0});
+	}
+
+	for (let i = 0; i < filteredMemories.length; i++) {
+		let emotions = filteredMemories[i].emotion;
+		for (let j = 0; j < emotions.length; j++) {
+			returnedEmotions.get(emotions[j]).val++;
+		}
+	}
+
+	return returnedEmotions;
+}
+
 export function deleteMemory(id) {
 	memory_storage.write(() => {
 		var object = memory_storage.objectForPrimaryKey('Memory', id);

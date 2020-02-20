@@ -1,8 +1,11 @@
 Tab based todo:
 1. Calendar
-	- Complete setup
-2. Diary
-	- Editing items
+	- Complete setup [DONE]
+	- Today's statistics
+	- Weekly statistics
+	- Monthly statistics
+	- Empty on empty days
+2. Diary [DONE]
 3. Memory [DONE]
 4. Settings
 	- Get Support [DONE]
@@ -32,3 +35,5 @@ Overall:
 Post-launch: 
 1. Diary
 	- Editing items
+2. Calendar
+	- Custom emoji dates

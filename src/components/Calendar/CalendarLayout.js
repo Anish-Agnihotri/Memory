@@ -5,7 +5,7 @@ import {returnOnlyMemoryDates} from '../../models/actions';
 
 import TodayStats from './Main/TodayStats';
 import WeeklyStats from './Main/WeeklyStats';
-import MonthlyStats from './Main/YearlyStats';
+import MonthlyStats from './Main/MonthlyStats';
 
 const daySelectAnimation = {
 	type: 'background',

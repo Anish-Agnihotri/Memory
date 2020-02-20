@@ -8,7 +8,8 @@ export default class WeeklyStats extends React.Component {
 			<View style={styles.statsview}>
 				<Text style={styles.statsheader}>Weekly Statistics</Text>
 				<Text style={styles.statsdesc}>
-					Mood activity for WEEK
+					Mood activity for week of the{' '}
+					{moment(this.props.date).format('Do')}
 				</Text>
 			</View>
 		);
