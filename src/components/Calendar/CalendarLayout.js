@@ -48,6 +48,7 @@ export default class CalendarLayout extends React.Component {
 			<View>
 				<CalendarStrip
 					style={styles.calendarStrip}
+					selectedDate={this.state.selectedDate}
 					markedDates={this.state.markedDates}
 					ref={this.strip}
 					calendarHeaderStyle={styles.calendarStripHeader}
@@ -67,6 +68,7 @@ export default class CalendarLayout extends React.Component {
 					{items.map((item, idx) => {
 						return <View key={idx}>{item}</View>;
 					})}
+					<View style={styles.bottompad} />
 				</ScrollView>
 			</View>
 		);
@@ -99,5 +101,8 @@ const styles = StyleSheet.create({
 	},
 	marginfix: {
 		paddingTop: 7.5,
+	},
+	bottompad: {
+		marginBottom: 130,
 	},
 });

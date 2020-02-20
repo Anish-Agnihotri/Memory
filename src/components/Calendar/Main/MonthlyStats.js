@@ -1,7 +1,7 @@
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View, Dimensions, StyleSheet} from 'react-native';
 import moment from 'moment';
-import {returnMonthlyMemories} from '../../../models/actions';
+import {returnMemoryStats} from '../../../models/actions';
 import {returnEmotionInfo} from '../../../utils/helpers';
 // TODO: pie chart of total
 // TODO: and each individual emotion
@@ -16,7 +16,7 @@ export default class MonthlyStats extends React.Component {
 	}
 	pullEmotionCount = () => {
 		let emotionCount = [];
-		let value = returnMonthlyMemories(
+		let value = returnMemoryStats(
 			moment(this.props.date)
 				.startOf('month')
 				.toDate(),
@@ -35,6 +35,10 @@ export default class MonthlyStats extends React.Component {
 			});
 		}
 
+		emotionCount.sort(function(a, b) {
+			return b.count - a.count;
+		});
+
 		this.setState({emotionCount: emotionCount});
 	};
 	UNSAFE_componentWillReceiveProps() {
@@ -47,8 +51,6 @@ export default class MonthlyStats extends React.Component {
 				<Text style={styles.statsdesc}>
 					Mood activity for {moment(this.props.date).format('MMMM')}
 				</Text>
-				<View />
-				<View style={styles.line} />
 				<View style={styles.statparent}>
 					{this.state.emotionCount.map((item, idx) => {
 						return (
@@ -70,12 +72,22 @@ class MonthlyStatItem extends React.Component {
 	render() {
 		return (
 			<View style={styles.monthlystatitem}>
-				<View>
-					<Text>{this.props.emoji}</Text>
+				<View
+					style={[
+						styles.emojiview,
+						this.props.count !== 0
+							? styles.emojiviewGreen
+							: styles.emojiviewDark,
+					]}>
+					<Text style={styles.emojitext}>{this.props.emoji}</Text>
 				</View>
-				<View>
-					<Text>{this.props.emotionName}</Text>
-					<Text>Count: {this.props.count}</Text>
+				<View style={styles.emotionview}>
+					<Text style={styles.emotionname}>
+						{this.props.emotionName}
+					</Text>
+					<Text style={styles.emotioncount}>
+						Count: {this.props.count}
+					</Text>
 				</View>
 			</View>
 		);
@@ -109,21 +121,46 @@ const styles = StyleSheet.create({
 		fontSize: 15.5,
 		paddingTop: 3,
 	},
-	line: {
-		height: 1,
-		marginTop: 20,
-		marginBottom: 20,
-		backgroundColor: '#ccc',
-		borderRadius: 10,
-	},
 	statparent: {
-		display: 'flex',
-		flexDirection: 'column',
-		justifyContent: 'center',
+		flexDirection: 'row',
+		flexWrap: 'wrap',
+		marginTop: 10,
 	},
 	monthlystatitem: {
+		margin: 5,
+		width: (Dimensions.get('window').width - 84) / 2,
+		flexDirection: 'row',
+	},
+	emojiview: {
+		borderWidth: 1,
+		height: 50,
+		width: 55,
+		borderRadius: 10,
 		flex: 1,
-		padding: 10,
-		backgroundColor: '#ccc',
+		justifyContent: 'center',
+	},
+	emojiviewGreen: {
+		borderColor: '#006666',
+		backgroundColor: '#DCEFEF',
+	},
+	emojiviewDark: {
+		borderColor: '#737373',
+		backgroundColor: '#f2f2f2',
+	},
+	emojitext: {
+		fontSize: 25,
+		alignSelf: 'center',
+	},
+	emotionview: {
+		flex: 2,
+		paddingLeft: 7.5,
+		justifyContent: 'center',
+	},
+	emotionname: {
+		fontWeight: '600',
+		fontSize: 16,
+	},
+	emotioncount: {
+
 	},
 });

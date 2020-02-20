@@ -42,7 +42,7 @@ export const emotions = [
 	{
 		id: 9,
 		emoji: '😳',
-		emotion: 'Embarrassed',
+		emotion: 'Awkward',
 	},
 	{
 		id: 10,

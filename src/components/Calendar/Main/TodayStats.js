@@ -11,6 +11,9 @@ export default class TodayStats extends React.Component {
 					Mood activity for{' '}
 					{moment(this.props.date).format('MMMM DD[,] YYYY')}
 				</Text>
+				<View style={styles.statparent}>
+
+				</View>
 			</View>
 		);
 	}
@@ -42,5 +45,8 @@ const styles = StyleSheet.create({
 		color: '#738c8c',
 		fontSize: 15.5,
 		paddingTop: 3,
+	},
+	statparent: {
+		marginTop: 10,
 	},
 });

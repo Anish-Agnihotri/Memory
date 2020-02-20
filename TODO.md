@@ -5,6 +5,7 @@ Tab based todo:
 	- Weekly statistics
 	- Monthly statistics
 	- Empty on empty days
+	- Fix double click rendering [DONE]
 2. Diary [DONE]
 3. Memory [DONE]
 4. Settings

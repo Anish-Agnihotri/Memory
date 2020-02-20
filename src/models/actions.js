@@ -49,7 +49,7 @@ export function returnOnlyMemoryDates() {
 	return returnedDates;
 }
 
-export function returnMonthlyMemories(startDate, endDate) {
+export function returnMemoryStats(startDate, endDate) {
 	let filteredMemories = memory_storage
 		.objects('Memory')
 		.filtered('date >= $0 && date < $1', startDate, endDate);
