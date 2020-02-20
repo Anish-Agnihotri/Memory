@@ -1,8 +1,11 @@
 import React from 'react';
 import CalendarStrip from 'react-native-calendar-strip';
-import {View, StyleSheet} from 'react-native';
-
+import {View, Text, ScrollView, StyleSheet} from 'react-native';
 import {returnOnlyMemoryDates} from '../../models/actions';
+
+import TodayStats from './Main/TodayStats';
+import WeeklyStats from './Main/WeeklyStats';
+import MonthlyStats from './Main/YearlyStats';
 
 const daySelectAnimation = {
 	type: 'background',
@@ -16,6 +19,7 @@ export default class CalendarLayout extends React.Component {
 
 		this.state = {
 			markedDates: [],
+			selectedDate: new Date(),
 		};
 	}
 	updateMarkedDates = () => {
@@ -23,15 +27,29 @@ export default class CalendarLayout extends React.Component {
 			markedDates: returnOnlyMemoryDates(),
 		});
 	};
+	updateSelectedDate = date => {
+		this.setState({
+			selectedDate: date,
+		});
+	};
 	componentDidMount() {
 		this.updateMarkedDates();
 	}
+	UNSAFE_componentWillReceiveProps() {
+		this.updateMarkedDates();
+	}
 	render() {
+		const items = [
+			<TodayStats date={this.state.selectedDate} />,
+			<WeeklyStats date={this.state.selectedDate} />,
+			<MonthlyStats date={this.state.selectedDate} />,
+		];
 		return (
 			<View>
 				<CalendarStrip
 					style={styles.calendarStrip}
 					markedDates={this.state.markedDates}
+					ref={this.strip}
 					calendarHeaderStyle={styles.calendarStripHeader}
 					calendarHeaderContainerStyle={
 						styles.calendarStripHeaderContainer
@@ -43,7 +61,13 @@ export default class CalendarLayout extends React.Component {
 					calendarColor={'#cde4e4'}
 					calendarHeaderPosition={'above'}
 					daySelectionAnimation={daySelectAnimation}
+					onDateSelected={date => this.updateSelectedDate(date)}
 				/>
+				<ScrollView style={styles.marginfix}>
+					{items.map((item, idx) => {
+						return <View key={idx}>{item}</View>;
+					})}
+				</ScrollView>
 			</View>
 		);
 	}
@@ -72,5 +96,8 @@ const styles = StyleSheet.create({
 	},
 	disabledDateNumber: {
 		color: '#509595',
+	},
+	marginfix: {
+		paddingTop: 7.5,
 	},
 });

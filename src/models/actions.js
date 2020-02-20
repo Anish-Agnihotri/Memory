@@ -34,9 +34,16 @@ export function returnOnlyMemoryDates() {
 	let returnedDates = [];
 	let memories = memory_storage.objects('Memory');
 	for (let i = 0; i < memories.length; i++) {
+		let isSpecial = memories[i].isSpecial;
 		returnedDates.push({
 			date: memories[i].date,
-			dots: [{key: i, color: '#FF836B', selectedDotColor: '#FF836B'}],
+			dots: [
+				{
+					key: i,
+					color: isSpecial ? '#FF836B' : '#006565',
+					selectedDotColor: isSpecial ? '#FF836B' : '#006565',
+				},
+			],
 		});
 	}
 	return returnedDates;

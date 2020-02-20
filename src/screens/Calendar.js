@@ -7,7 +7,9 @@ export default class Calendar extends React.Component {
 	render() {
 		return (
 			<View style={styles.calendarview}>
-				<CalendarLayout />
+				<CalendarLayout
+					globalLayoutRefresh={this.props.globalLayoutRefresh}
+				/>
 			</View>
 		);
 	}

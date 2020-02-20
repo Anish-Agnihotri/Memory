@@ -73,15 +73,20 @@ class MainStackScreen extends React.Component {
 							/>
 						)}
 					</MainStack.Screen>
-					<MainStack.Screen name="Calendar" component={Calendar} />
+					<MainStack.Screen name="Calendar">
+						{() => (
+							<Calendar
+								globalLayoutRefresh={
+									this.props.globalLayoutRefresh
+								}
+							/>
+						)}
+					</MainStack.Screen>
 					<MainStack.Screen name="Memories">
 						{() => (
 							<Memories
 								globalLayoutRefresh={
 									this.props.globalLayoutRefresh
-								}
-								toggleGlobalRefresh={
-									this.props.toggleGlobalRefresh
 								}
 							/>
 						)}
@@ -168,9 +173,6 @@ class App extends React.Component {
 						<RootStack.Screen name="Settings" options={ModalConfig}>
 							{() => (
 								<ModalStackScreen
-									globalLayoutRefresh={
-										this.state.globalLayoutRefresh
-									}
 									toggleGlobalRefresh={
 										this.toggleGlobalRefresh
 									}
