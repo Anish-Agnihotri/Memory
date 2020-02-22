@@ -36,6 +36,7 @@ target 'Memory' do
 
   pod 'RealmJS', :path => '../node_modules/realm'
 
+
   target 'MemoryTests' do
     inherit! :search_paths
     # Pods for testing

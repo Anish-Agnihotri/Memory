@@ -32,6 +32,7 @@ Overall:
 14. check for console logs and redundant helper functions
 15. HEAVY Documentation
 16. settings icon color
+17. Fix initial green flash (bg color + load + render items)
 
 Post-launch: 
 1. Diary
