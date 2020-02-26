@@ -1,4 +1,3 @@
-Tab based todo:
 1. Calendar [DONE]
 	- Complete setup [DONE]
 	- Today's statistics [DONE]
@@ -11,11 +10,14 @@ Tab based todo:
 3. Memory [DONE]
 4. Settings
 	- Get Support [DONE]
-	- Themes
+	- Themes [TODO: POSTPONED]
 	- Export
+		- Markdown
+		- JSON
+		- CSV
 	- Made by [DONE]
 	- Legal stuff
-	- Version data
+	- Version data [DONE]
 	- Delete all data [DONE]
 
 Overall:
@@ -24,25 +26,27 @@ Overall:
 6. First open process
 7. Push notifications
 8. Rate this app popup, once per open
-9. Potential updates
-	- Additional entries
 10. Haptic feedback
 11. Fix dark mode, date picker - isDarkModeEnabled={true}
-12. Pull metadata from photos
 13. Fix back icons
 14. check for console logs and redundant helper functions
-15. HEAVY Documentation
-16. settings icon color
 17. Fix initial green flash (bg color + load + render items)
-18. Refactor componentWillReceiveProps to use useEffect.
+19. Update get support email
+20. Bundle size optimization
 
 Post-launch: 
 1. Diary
 	- Editing items
+	- Additional entries (like an actual diary)
+	- Pull metadata from photos
 2. Calendar
-	- Custom emoji dates
+	- Custom emoji dates in flattened date list
+3. Settings
+	- Custom color themes
+4. Documentation
+	- HEAVY Documentation
 
-Today's todos:
-1. Today's stats
-2. Weekly stats
-3. Empty placeholders
+Today:
+1. Legal stuff
+2. Haptic feedback
+3. Fix dark mode

@@ -11,7 +11,6 @@ import Diary from './src/screens/Diary';
 import Memories from './src/screens/Memories';
 
 import Settings from './src/screens/Settings';
-import ThemeSettings from './src/screens/Settings/ThemeSettings';
 import LegalitySettings from './src/screens/Settings/LegalitySettings';
 import ExportSettings from './src/screens/Settings/ExportSettings';
 
@@ -112,11 +111,6 @@ class ModalStackScreen extends React.Component {
 					)}
 				</ModalStack.Screen>
 				<ModalStack.Screen
-					name="Themes"
-					component={ThemeSettings}
-					options={subModalPageConfig}
-				/>
-				<ModalStack.Screen
 					name="Legal"
 					component={LegalitySettings}
 					options={subModalPageConfig}
@@ -147,7 +141,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<SafeAreaProvider>
-				<StatusBar translucent={true} barStyle="dark-content" />
+				<StatusBar translucent={true} barStyle="light-content" />
 				<NavigationContainer
 					ref={navigationRef}
 					theme={{

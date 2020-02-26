@@ -128,7 +128,6 @@ class TodayEmotionChart extends React.Component {
 					}),
 			};
 		});
-		// Add parsing if count is equal to 0 to prompt user selection
 		return (
 			<View style={styles.pieview}>
 				<PieChart

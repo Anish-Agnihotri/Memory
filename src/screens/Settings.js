@@ -5,21 +5,21 @@ import SettingsHeader from '../components/Settings/SettingsHeader';
 import SettingsSection from '../components/Settings/SettingsSection';
 
 import GetSupport from '../components/Settings/Main/GetSupport';
-import Themes from '../components/Settings/Main/Themes';
 import ExportData from '../components/Settings/Main/ExportData';
 import Legal from '../components/Settings/Main/Legal';
 import MadeBy from '../components/Settings/Main/MadeBy';
 import DeleteAll from '../components/Settings/Main/DeleteAll';
+import VersionData from '../components/Settings/Main/VersionData';
 
 export default class Settings extends React.Component {
 	render() {
 		const items = [
 			<GetSupport />,
-			<Themes />,
 			<ExportData />,
 			<MadeBy />,
 			<Legal />,
 			<DeleteAll toggleGlobalRefresh={this.props.toggleGlobalRefresh} />,
+			<VersionData />,
 		];
 		return (
 			<View style={styles.settingsContainer}>

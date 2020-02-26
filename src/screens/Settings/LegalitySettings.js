@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
+import {WebView} from 'react-native-webview';
 import SettingsHeader from '../../components/Settings/SettingsHeader';
 
 export default class LegalitySettings extends React.Component {
@@ -12,6 +13,7 @@ export default class LegalitySettings extends React.Component {
 					buttonNavigation="Settings"
 					closeAll={false}
 				/>
+				<WebView source={{ uri: 'https://google.com/'}}/>
 			</View>
 		);
 	}
