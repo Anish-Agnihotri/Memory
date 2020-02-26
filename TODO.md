@@ -1,12 +1,12 @@
 Tab based todo:
-1. Calendar
+1. Calendar [DONE]
 	- Complete setup [DONE]
 	- Today's statistics [DONE]
 	- Weekly statistics [DONE]
 	- Monthly statistics [DONE]
 	- Empty on empty days [DONE]
 	- Fix double click rendering [DONE]
-	- Better placeholder
+	- Better placeholder [DONE]
 2. Diary [DONE]
 3. Memory [DONE]
 4. Settings

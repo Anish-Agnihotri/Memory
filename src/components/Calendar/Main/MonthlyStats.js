@@ -61,7 +61,7 @@ export default class MonthlyStats extends React.Component {
 				</Text>
 				<View style={styles.statparent}>
 					{this.state.empty ? (
-						<Placeholder />
+						<Placeholder string="this month" />
 					) : (
 						<>
 							{this.state.emotionCount.map((item, idx) => {
