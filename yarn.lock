@@ -5860,6 +5860,11 @@ react-native-screens@^2.0.0-beta.2:
   dependencies:
     debounce "^1.2.0"
 
+react-native-segmented-progress-bar@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/react-native-segmented-progress-bar/-/react-native-segmented-progress-bar-1.0.7.tgz#906a04717e8ed3f63f7add704e0a440b02cedde8"
+  integrity sha512-aVWeORU+2L9jsu/naixwPv+/3ZkrjyobDAL0nVPMMY+HXJS87GtTm9hqkteW3Ungu0K1M1uUpyx3JknHBVJvdg==
+
 react-native-static-safe-area-insets@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/react-native-static-safe-area-insets/-/react-native-static-safe-area-insets-2.0.0.tgz#3a00e77e00cf2b80227c179359f1856971069da8"
