@@ -69,6 +69,32 @@ export function returnMemoryStats(startDate, endDate) {
 	return returnedEmotions;
 }
 
+export function returnMemoryPositiveOrNegative(startDate, endDate) {
+	let emotions = returnMemoryStats(startDate, endDate);
+
+	let emotionCountPositive = 0;
+	let emotionCountNegative = 0;
+	let emotionCountNeutral = 0;
+
+	/*
+		Positive emotions: 1, 2, 3, 14, 15, 18
+		Negative emotions: 4, 6, 8, 10, 11, 13, 17
+		Neutral emotions: 5, 7, 9, 12, 16
+	*/
+
+	for (let [emotion, val] of emotions) {
+		if ([1, 2, 3, 14, 15, 18].includes(emotion)) {
+			emotionCountPositive += val.val;
+		} else if ([4, 6, 8, 10, 11, 13, 17].includes(emotion)) {
+			emotionCountNegative += val.val;
+		} else {
+			emotionCountNeutral += val.val;
+		}
+	}
+
+	return {emotionCountPositive, emotionCountNegative, emotionCountNeutral};
+}
+
 export function deleteMemory(id) {
 	memory_storage.write(() => {
 		var object = memory_storage.objectForPrimaryKey('Memory', id);
