@@ -1,9 +1,12 @@
 import React from 'react';
-import {Text, View, StyleSheet, Dimensions} from 'react-native';
+import {Text, Image, View, StyleSheet} from 'react-native';
 import {PieChart} from 'react-native-svg-charts';
 import {returnMemoryStats} from '../../../models/actions';
 import {returnEmotionInfo} from '../../../utils/helpers';
 import moment from 'moment';
+
+import Placeholder from './Placeholder';
+import chart from '../../../assets/icons/chart.png';
 
 export default class TodayStats extends React.Component {
 	constructor() {
@@ -11,15 +14,16 @@ export default class TodayStats extends React.Component {
 
 		this.state = {
 			emotionCount: [],
+			empty: true,
 		};
 	}
-	pullEmotionCount = () => {
+	pullEmotionCount = date => {
 		let emotionCount = [];
 		let value = returnMemoryStats(
-			moment(this.props.date)
+			moment(date)
 				.startOf('day')
 				.toDate(),
-			moment(this.props.date)
+			moment(date)
 				.endOf('day')
 				.toDate(),
 		);
@@ -38,10 +42,17 @@ export default class TodayStats extends React.Component {
 			return b.count - a.count;
 		});
 
-		this.setState({emotionCount: emotionCount});
+		if (emotionCount.every(item => item.count === 0)) {
+			this.setState({empty: true});
+		} else {
+			this.setState({emotionCount: emotionCount, empty: false});
+		}
 	};
-	UNSAFE_componentWillReceiveProps() {
-		this.pullEmotionCount();
+	componentDidMount() {
+		this.pullEmotionCount(this.props.date);
+	}
+	UNSAFE_componentWillReceiveProps(props) {
+		this.pullEmotionCount(props.date);
 	}
 	render() {
 		return (
@@ -52,7 +63,13 @@ export default class TodayStats extends React.Component {
 					{moment(this.props.date).format('MMMM DD[,] YYYY')}
 				</Text>
 				<View style={styles.statparent}>
-					<TodayEmotionChart emotionCount={this.state.emotionCount} />
+					{this.state.empty ? (
+						<Placeholder />
+					) : (
+						<TodayEmotionChart
+							emotionCount={this.state.emotionCount}
+						/>
+					)}
 				</View>
 			</View>
 		);
@@ -66,9 +83,12 @@ class TodayEmotionChart extends React.Component {
 		this.state = {
 			selectedSlice: {
 				label: '',
-				value: 1,
+				value: 0,
 			},
 		};
+	}
+	UNSAFE_componentWillReceiveProps() {
+		this.setState({selectedSlice: {label: '', value: 0}});
 	}
 	render() {
 		const {selectedSlice} = this.state;
@@ -108,6 +128,7 @@ class TodayEmotionChart extends React.Component {
 					}),
 			};
 		});
+		// Add parsing if count is equal to 0 to prompt user selection
 		return (
 			<View style={styles.pieview}>
 				<PieChart
@@ -117,14 +138,29 @@ class TodayEmotionChart extends React.Component {
 					data={data}
 				/>
 				<View style={styles.pieviewcontent}>
-					{}
-					<Text style={styles.pieviewcontentemoji}>{label}</Text>
-					<Text style={styles.pieviewcontentemotion}>
-						{emotionNames[this.state.selectedSlice.index]}
-					</Text>
-					<Text style={styles.pieviewcontentvalue}>
-						Count: {value}
-					</Text>
+					{this.state.selectedSlice.value === 0 ? (
+						<>
+							<Image
+								source={chart}
+								style={styles.emptypieplaceholder}
+							/>
+							<Text style={styles.emptypietext}>
+								Select slice
+							</Text>
+						</>
+					) : (
+						<>
+							<Text style={styles.pieviewcontentemoji}>
+								{label}
+							</Text>
+							<Text style={styles.pieviewcontentemotion}>
+								{emotionNames[this.state.selectedSlice.index]}
+							</Text>
+							<Text style={styles.pieviewcontentvalue}>
+								Count: {value}
+							</Text>
+						</>
+					)}
 				</View>
 			</View>
 		);
@@ -188,5 +224,14 @@ const styles = StyleSheet.create({
 	pieviewcontentemotion: {
 		fontSize: 20,
 		fontWeight: '600',
+	},
+	emptypietext: {
+		fontSize: 17,
+		fontWeight: '500',
+	},
+	emptypieplaceholder: {
+		height: 35,
+		width: 35,
+		marginBottom: 5,
 	},
 });

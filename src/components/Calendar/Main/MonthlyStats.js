@@ -3,8 +3,8 @@ import {Text, View, Dimensions, StyleSheet} from 'react-native';
 import moment from 'moment';
 import {returnMemoryStats} from '../../../models/actions';
 import {returnEmotionInfo} from '../../../utils/helpers';
-// TODO: pie chart of total
-// TODO: and each individual emotion
+
+import Placeholder from './Placeholder';
 
 export default class MonthlyStats extends React.Component {
 	constructor() {
@@ -12,15 +12,16 @@ export default class MonthlyStats extends React.Component {
 
 		this.state = {
 			emotionCount: [],
+			empty: true,
 		};
 	}
-	pullEmotionCount = () => {
+	pullEmotionCount = date => {
 		let emotionCount = [];
 		let value = returnMemoryStats(
-			moment(this.props.date)
+			moment(date)
 				.startOf('month')
 				.toDate(),
-			moment(this.props.date)
+			moment(date)
 				.endOf('month')
 				.toDate(),
 		);
@@ -39,10 +40,17 @@ export default class MonthlyStats extends React.Component {
 			return b.count - a.count;
 		});
 
-		this.setState({emotionCount: emotionCount});
+		if (emotionCount.every(item => item.count === 0)) {
+			this.setState({empty: true});
+		} else {
+			this.setState({emotionCount: emotionCount, empty: false});
+		}
 	};
-	UNSAFE_componentWillReceiveProps() {
-		this.pullEmotionCount();
+	componentDidMount() {
+		this.pullEmotionCount(this.props.date);
+	}
+	UNSAFE_componentWillReceiveProps(props) {
+		this.pullEmotionCount(props.date);
 	}
 	render() {
 		return (
@@ -52,16 +60,22 @@ export default class MonthlyStats extends React.Component {
 					Mood activity for {moment(this.props.date).format('MMMM')}
 				</Text>
 				<View style={styles.statparent}>
-					{this.state.emotionCount.map((item, idx) => {
-						return (
-							<MonthlyStatItem
-								key={idx}
-								emoji={item.emoji}
-								emotionName={item.emotionName}
-								count={item.count}
-							/>
-						);
-					})}
+					{this.state.empty ? (
+						<Placeholder />
+					) : (
+						<>
+							{this.state.emotionCount.map((item, idx) => {
+								return (
+									<MonthlyStatItem
+										key={idx}
+										emoji={item.emoji}
+										emotionName={item.emotionName}
+										count={item.count}
+									/>
+								);
+							})}
+						</>
+					)}
 				</View>
 			</View>
 		);

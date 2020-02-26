@@ -39,11 +39,6 @@ export default class CalendarLayout extends React.Component {
 		this.updateMarkedDates();
 	}
 	render() {
-		const items = [
-			<TodayStats date={this.state.selectedDate} />,
-			<WeeklyStats date={this.state.selectedDate} />,
-			<MonthlyStats date={this.state.selectedDate} />,
-		];
 		return (
 			<View>
 				<CalendarStrip
@@ -65,9 +60,9 @@ export default class CalendarLayout extends React.Component {
 					onDateSelected={date => this.updateSelectedDate(date)}
 				/>
 				<ScrollView style={styles.marginfix}>
-					{items.map((item, idx) => {
-						return <View key={idx}>{item}</View>;
-					})}
+					<TodayStats date={this.state.selectedDate} />
+					<WeeklyStats date={this.state.selectedDate} />
+					<MonthlyStats date={this.state.selectedDate} />
 					<View style={styles.bottompad} />
 				</ScrollView>
 			</View>

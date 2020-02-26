@@ -1,10 +1,10 @@
 Tab based todo:
 1. Calendar
 	- Complete setup [DONE]
-	- Today's statistics
+	- Today's statistics [DONE]
 	- Weekly statistics
-	- Monthly statistics
-	- Empty on empty days
+	- Monthly statistics [DONE]
+	- Empty on empty days [DONE]
 	- Fix double click rendering [DONE]
 2. Diary [DONE]
 3. Memory [DONE]
@@ -33,9 +33,15 @@ Overall:
 15. HEAVY Documentation
 16. settings icon color
 17. Fix initial green flash (bg color + load + render items)
+18. Refactor componentWillReceiveProps to use useEffect.
 
 Post-launch: 
 1. Diary
 	- Editing items
 2. Calendar
 	- Custom emoji dates
+
+Today's todos:
+1. Today's stats
+2. Weekly stats
+3. Empty placeholders
