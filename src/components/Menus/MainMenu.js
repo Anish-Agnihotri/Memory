@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, KeyboardAvoidingView } from 'react-native';
+import {View, StyleSheet, KeyboardAvoidingView} from 'react-native';
 import moment from 'moment';
 
 import MemoryHeader from './Main/MemoryHeader';
@@ -11,7 +11,7 @@ import MenuButton from '../Buttons/MenuButton';
 import EmotionHeader from './Main/EmotionHeader';
 import EmotionSelection from './Main/EmotionSelection';
 
-import { addMemory } from '../../models/actions';
+import {addMemory} from '../../models/actions';
 
 export default class MainMenu extends React.Component {
 	constructor() {
@@ -31,32 +31,32 @@ export default class MainMenu extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 	titleUpdate = value => {
-		this.setState({ title: value });
+		this.setState({title: value});
 	};
 	entryUpdate = value => {
-		this.setState({ entry: value });
+		this.setState({entry: value});
 	};
 	toggleSpecial = value => {
-		this.setState({ isSpecial: value });
+		this.setState({isSpecial: value});
 	};
 	handleDateChange = value => {
-		this.setState({ date: value });
+		this.setState({date: value});
 	};
 	handleImagePathChange = value => {
-		this.setState({ image: value });
+		this.setState({image: value});
 	};
 	changeShown = () => {
-		this.setState({ mainShown: false });
+		this.setState({mainShown: false});
 	};
 	updateProcessActive = () => {
-		this.setState(previous => ({ processActive: !previous.processActive }));
+		this.setState(previous => ({processActive: !previous.processActive}));
 	};
 	handleEmotionChange = value => {
 		if (this.state.emotion.includes(value)) {
 			var array = this.state.emotion.filter(val => val !== value);
-			this.setState({ emotion: array });
+			this.setState({emotion: array});
 		} else {
-			this.setState({ emotion: [...this.state.emotion, ...[value]] });
+			this.setState({emotion: [...this.state.emotion, ...[value]]});
 		}
 	};
 	async handleSubmit() {
@@ -66,7 +66,7 @@ export default class MainMenu extends React.Component {
 			this.state.entry,
 			this.state.image.uri,
 			this.state.isSpecial,
-			this.state.emotion
+			this.state.emotion,
 		);
 		this.props.toggleGlobalRefresh();
 		this.props.toggleModal();

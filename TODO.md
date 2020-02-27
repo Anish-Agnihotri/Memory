@@ -23,15 +23,8 @@
 Overall:
 1. Optimization
 2. Add animations
-6. First open process
-7. Push notifications
-8. Rate this app popup, once per open
 10. Haptic feedback
-11. Fix dark mode, date picker - isDarkModeEnabled={true}
-13. Fix back icons
-14. check for console logs and redundant helper functions
 17. Fix initial green flash (bg color + load + render items)
-19. Update get support email
 20. Bundle size optimization
 
 Post-launch: 
@@ -44,5 +37,9 @@ Post-launch:
 	- Custom emoji dates in flattened date list
 3. Settings
 	- Custom color themes
+	- Export options
 4. Documentation
 	- HEAVY Documentation
+5. First open process
+6. Push notifications
+7. Rate this app pop-up

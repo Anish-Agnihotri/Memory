@@ -9,7 +9,7 @@ export default class LegalitySettings extends React.Component {
 			<View style={styles.settingsContainer}>
 				<SettingsHeader
 					screenName="Legal"
-					buttonText="← Settings"
+					buttonText="Settings"
 					buttonNavigation="Settings"
 					closeAll={false}
 				/>

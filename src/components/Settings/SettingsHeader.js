@@ -1,6 +1,8 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, Image, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import * as RootNavigation from '../../utils/navigation';
+
+import backButton from '../../assets/icons/back.png';
 
 export default class SettingsHeader extends React.Component {
 	render() {
@@ -18,9 +20,16 @@ export default class SettingsHeader extends React.Component {
 					onPress={() =>
 						RootNavigation.navigate(this.props.buttonNavigation)
 					}>
-					<Text style={styles.settingsheaderbuttontext}>
-						{this.props.buttonText}
-					</Text>
+					<View>
+						{this.props.closeAll ? (
+							<Text style={styles.settingsheaderbuttontext}>{this.props.buttonText}</Text>
+						) : (
+							<View style={styles.buttonview}>
+								<Image style={styles.buttonimage} source={backButton} />
+								<Text style={styles.settingsheaderbuttontext}>{this.props.buttonText}</Text>
+							</View>
+						)}
+					</View>
 				</TouchableOpacity>
 			</View>
 		);
@@ -61,5 +70,13 @@ const styles = StyleSheet.create({
 	settingsheaderbuttontext: {
 		fontSize: 17,
 		color: '#024342',
+		marginLeft: 5,
+	},
+	buttonview: {
+		flexDirection: 'row',
+	},
+	buttonimage: {
+		width: 12,
+		height: 22,
 	},
 });

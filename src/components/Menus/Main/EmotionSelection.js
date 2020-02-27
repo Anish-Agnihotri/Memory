@@ -1,6 +1,11 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
-import { emotions } from '../../../utils/emotions';
+import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
+import {emotions} from '../../../utils/emotions';
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
+
+const options = {
+	enableVibrateFallback: true,
+};
 
 export default class EmotionSelection extends React.Component {
 	render() {
@@ -26,8 +31,6 @@ export default class EmotionSelection extends React.Component {
 	}
 }
 
-// TODO: Make alternatecolor toggle
-
 class Emotion extends React.Component {
 	constructor() {
 		super();
@@ -37,10 +40,13 @@ class Emotion extends React.Component {
 		};
 	}
 	toggleClicked = () => {
-		this.setState(previous => ({ clicked: !previous.clicked }));
+		this.setState(previous => ({clicked: !previous.clicked}));
 	};
 	handlePress = () => {
 		this.toggleClicked();
+		if (this.state.clicked === false) {
+			ReactNativeHapticFeedback.trigger('selection', options);
+		}
 		this.props.onPress();
 	};
 	render() {
@@ -51,8 +57,8 @@ class Emotion extends React.Component {
 					styles.emotionbutton,
 					[
 						this.state.clicked
-							? { backgroundColor: '#DCEFEF' }
-							: { backgroundColor: '#FFF' },
+							? {backgroundColor: '#DCEFEF'}
+							: {backgroundColor: '#FFF'},
 					],
 				]}>
 				<Text style={styles.emotionbuttontext}>{this.props.emoji}</Text>

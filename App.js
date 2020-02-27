@@ -1,5 +1,6 @@
 import React from 'react';
 import {StatusBar} from 'react-native';
+import {AppearanceProvider} from 'react-native-appearance';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
@@ -140,42 +141,44 @@ class App extends React.Component {
 	};
 	render() {
 		return (
-			<SafeAreaProvider>
-				<StatusBar translucent={true} barStyle="light-content" />
-				<NavigationContainer
-					ref={navigationRef}
-					theme={{
-						colors: {
-							background: '#006565',
-						},
-					}}>
-					<RootStack.Navigator mode="modal">
-						<RootStack.Screen
-							name="Memories"
-							options={{headerShown: false}}>
-							{() => (
-								<MainStackScreen
-									globalLayoutRefresh={
-										this.state.globalLayoutRefresh
-									}
-									toggleGlobalRefresh={
-										this.toggleGlobalRefresh
-									}
-								/>
-							)}
-						</RootStack.Screen>
-						<RootStack.Screen name="Settings" options={ModalConfig}>
-							{() => (
-								<ModalStackScreen
-									toggleGlobalRefresh={
-										this.toggleGlobalRefresh
-									}
-								/>
-							)}
-						</RootStack.Screen>
-					</RootStack.Navigator>
-				</NavigationContainer>
-			</SafeAreaProvider>
+			<AppearanceProvider>
+				<SafeAreaProvider>
+					<StatusBar translucent={true} barStyle="light-content" />
+					<NavigationContainer
+						ref={navigationRef}
+						theme={{
+							colors: {
+								background: '#006565',
+							},
+						}}>
+						<RootStack.Navigator mode="modal">
+							<RootStack.Screen
+								name="Memories"
+								options={{headerShown: false}}>
+								{() => (
+									<MainStackScreen
+										globalLayoutRefresh={
+											this.state.globalLayoutRefresh
+										}
+										toggleGlobalRefresh={
+											this.toggleGlobalRefresh
+										}
+									/>
+								)}
+							</RootStack.Screen>
+							<RootStack.Screen name="Settings" options={ModalConfig}>
+								{() => (
+									<ModalStackScreen
+										toggleGlobalRefresh={
+											this.toggleGlobalRefresh
+										}
+									/>
+								)}
+							</RootStack.Screen>
+						</RootStack.Navigator>
+					</NavigationContainer>
+				</SafeAreaProvider>
+			</AppearanceProvider>
 		);
 	}
 }

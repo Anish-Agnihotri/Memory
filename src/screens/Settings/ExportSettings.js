@@ -12,7 +12,7 @@ export default class ExportSettings extends React.Component {
 			<View style={styles.settingsContainer}>
 				<SettingsHeader
 					screenName="Export"
-					buttonText="← Settings"
+					buttonText="Settings"
 					buttonNavigation="Settings"
 					closeAll={false}
 				/>

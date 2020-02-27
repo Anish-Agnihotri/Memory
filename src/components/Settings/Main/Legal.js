@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Text, StyleSheet } from 'react-native';
+import {Image, Text, StyleSheet} from 'react-native';
 import RoundedButton from '../../Buttons/RoundedButton';
 import * as RootNavigation from '../../../utils/navigation';
 
@@ -15,7 +15,10 @@ export default class Legal extends React.Component {
 					I don't store any of your data.{'\n'}Still, I don't like
 					getting sued.
 				</Text>
-				<RoundedButton text="Privacy Policy" whenPressed={() => RootNavigation.navigate('Legal')}/>
+				<RoundedButton
+					text="Privacy Policy"
+					whenPressed={() => RootNavigation.navigate('Legal')}
+				/>
 			</>
 		);
 	}

@@ -1,5 +1,5 @@
 import Realm from 'realm';
-import { memory_schema } from './schema';
+import {memory_schema} from './schema';
 
 export const memory_storage = new Realm({
 	schema: memory_schema,

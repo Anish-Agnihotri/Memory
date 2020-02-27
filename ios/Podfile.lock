@@ -239,6 +239,8 @@ PODS:
     - React
   - RNGestureHandler (1.5.6):
     - React
+  - RNReactNativeHapticFeedback (1.9.0):
+    - React
   - RNReanimated (1.7.0):
     - React
   - RNScreens (2.0.0-beta.2):
@@ -288,6 +290,7 @@ DEPENDENCIES:
   - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
   - RNFS (from `../node_modules/react-native-fs`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNReactNativeHapticFeedback (from `../node_modules/react-native-haptic-feedback`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNShare (from `../node_modules/react-native-share`)
@@ -367,6 +370,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-fs"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNReactNativeHapticFeedback:
+    :path: "../node_modules/react-native-haptic-feedback"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
@@ -416,6 +421,7 @@ SPEC CHECKSUMS:
   RNDateTimePicker: 1a251f8b276abda796d8119a96bcd1763a76f6b0
   RNFS: 90d1a32d3bc8f75cc7fc3dd2f67506049664346b
   RNGestureHandler: 911d3b110a7a233a34c4f800e7188a84b75319c6
+  RNReactNativeHapticFeedback: 2566b468cc8d0e7bb2f84b23adc0f4614594d071
   RNReanimated: 031fe8d9ea93c2bd689a40f05320ef9d96f74d7f
   RNScreens: 5e4758109c6d35f9a009ce72af873df907548020
   RNShare: 0e19ddb0bf338b62702ce1d9e001ee14effa68a8
