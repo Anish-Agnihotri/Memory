@@ -2,9 +2,9 @@ import React from 'react';
 import {View, ScrollView, StyleSheet} from 'react-native';
 import SettingsHeader from '../../components/Settings/SettingsHeader';
 
-import ExportMarkdown from '../../components/Settings/Main/Export/ExportMarkdown';
+// import ExportMarkdown from '../../components/Settings/Main/Export/ExportMarkdown';
 import ExportJSON from '../../components/Settings/Main/Export/ExportJSON';
-import ExportCSV from '../../components/Settings/Main/Export/ExportCSV';
+// import ExportCSV from '../../components/Settings/Main/Export/ExportCSV';
 
 export default class ExportSettings extends React.Component {
 	render() {
@@ -17,9 +17,9 @@ export default class ExportSettings extends React.Component {
 					closeAll={false}
 				/>
 				<ScrollView style={styles.marginfix}>
-					<ExportMarkdown />
+					{/*<ExportMarkdown />*/}
 					<ExportJSON />
-					<ExportCSV />
+					{/*<ExportCSV />*/}
 				</ScrollView>
 			</View>
 		);
