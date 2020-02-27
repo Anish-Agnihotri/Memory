@@ -7,7 +7,7 @@ import support from '../../../assets/icons/support.png';
 export default class GetSupport extends React.Component {
 	onPressFunc = () => {
 		Linking.openURL(
-			'mailto:support@memoryapp.com?subject=Support | Memory',
+			'mailto:contact@anishagnihotri.com?subject=Support | Memory',
 		);
 	};
 	render() {

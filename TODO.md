@@ -16,7 +16,7 @@
 		- JSON
 		- CSV
 	- Made by [DONE]
-	- Legal stuff
+	- Legal stuff [DONE]
 	- Version data [DONE]
 	- Delete all data [DONE]
 

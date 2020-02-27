@@ -13,7 +13,11 @@ export default class LegalitySettings extends React.Component {
 					buttonNavigation="Settings"
 					closeAll={false}
 				/>
-				<WebView source={{ uri: 'https://google.com/'}}/>
+				<WebView
+					style={styles.webview}
+					source={{uri: 'https://anishagnihotri.com/memory/'}}
+					decelerationRate="fast"
+				/>
 			</View>
 		);
 	}
@@ -23,6 +27,9 @@ const styles = StyleSheet.create({
 	settingsContainer: {
 		flex: 1,
 		flexDirection: 'column',
+		backgroundColor: '#F0F7F7',
+	},
+	webview: {
 		backgroundColor: '#F0F7F7',
 	},
 });
