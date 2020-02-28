@@ -6,6 +6,7 @@ import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import SafeAreaView from 'react-native-safe-area-view';
+import SplashScreen from 'react-native-splash-screen';
 
 import Calendar from './src/screens/Calendar';
 import Diary from './src/screens/Diary';
@@ -34,6 +35,7 @@ const TabBarConfig = {
 	},
 	style: {
 		width: 300,
+		backgroundColor: '#006565',
 	},
 };
 
@@ -139,6 +141,9 @@ class App extends React.Component {
 			globalLayoutRefresh: !previous.globalLayoutRefresh,
 		}));
 	};
+	componentDidMount() {
+		SplashScreen.hide();
+	}
 	render() {
 		return (
 			<AppearanceProvider>

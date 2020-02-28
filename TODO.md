@@ -21,9 +21,6 @@
 	- Delete all data [DONE]
 
 Overall:
-1. Optimization
-2. Add animations
-10. Haptic feedback
 17. Fix initial green flash (bg color + load + render items)
 20. Bundle size optimization
 
@@ -43,3 +40,11 @@ Post-launch:
 5. First open process
 6. Push notifications
 7. Rate this app pop-up
+8. Add animations
+9. Heavy optimization
+
+Left before App Store launch:
+1. Bundle optimization
+2. Splash screen
+3. App logo
+4. Finalized app store screenshots

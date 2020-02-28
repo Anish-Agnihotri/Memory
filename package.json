@@ -32,6 +32,7 @@
     "react-native-safe-area-view": "^1.0.0",
     "react-native-screens": "^2.0.0-beta.2",
     "react-native-share": "^3.0.0",
+    "react-native-splash-screen": "^3.2.0",
     "react-native-static-safe-area-insets": "^2.0.0",
     "react-native-svg": "^11.0.1",
     "react-native-svg-charts": "^5.3.0",
