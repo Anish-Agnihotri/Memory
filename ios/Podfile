@@ -44,13 +44,3 @@ target 'Memory' do
 
   use_native_modules!
 end
-
-target 'Memory-tvOS' do
-  # Pods for Memory-tvOS
-
-  target 'Memory-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-end

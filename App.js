@@ -142,7 +142,8 @@ class App extends React.Component {
 		}));
 	};
 	componentDidMount() {
-		SplashScreen.hide();
+		// TODO: Janky fix for background color flash, 0.35s delay
+		setTimeout(() => SplashScreen.hide(), 350);
 	}
 	render() {
 		return (

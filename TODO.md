@@ -46,5 +46,5 @@ Post-launch:
 Left before App Store launch:
 1. Bundle optimization
 2. Splash screen
-3. App logo
+3. App logo [DONE]
 4. Finalized app store screenshots
