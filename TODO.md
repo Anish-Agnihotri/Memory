@@ -27,6 +27,7 @@ Overall:
 Post-launch: 
 1. Diary
 	- Editing items
+	- Deleting items
 	- Additional entries (like an actual diary)
 	- Pull metadata from photos
 	- Hide emotions on scroll
@@ -44,7 +45,7 @@ Post-launch:
 9. Heavy optimization
 
 Left before App Store launch:
-1. Bundle optimization
-2. Splash screen
+1. Bundle optimization [DONE]
+2. Splash screen [DONE]
 3. App logo [DONE]
 4. Finalized app store screenshots

@@ -1,4 +1,4 @@
-<p align="center"><img src="https://i.imgur.com/OFb2npX.png" alt="Memory header"/></p>
+<p align="center"><img src="https://i.imgur.com/nrP2uza.png" alt="Memory header"/></p>
 <p align="center"><strong>:warning: Warning: Memory is currently a Work-In-Progress (WIP), as a hobby project of <a href="https://github.com/anish-agnihotri">@anish-agnihotri</a>. Until first release to App Store, project may not be buildable or feature-complete.</strong></p>
 
 ## Memory
@@ -33,4 +33,7 @@ Full feature-set + architecture to be updated upon release.
 * Formatting: [notepad/notepad](https://github.com/notepad/notepad/blob/master/README.md)
 
 ## License
-Venti is licensed under [the MIT license](https://github.com/anish-agnihotri/Memory/blob/master/LICENSE.md).
+Memory is licensed under [the MIT license](https://github.com/anish-agnihotri/Memory/blob/master/LICENSE.md).
+
+## Screenshots
+<p align="center"><img src="https://i.imgur.com/qUBhikR.png" alt="Memory Screenshots"/></p>
