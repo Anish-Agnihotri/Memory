@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet, Dimensions} from 'react-native';
+import {View, Text, StyleSheet, Dimensions} from 'react-native';
+import Image from 'react-native-scalable-image';
 import {imagePath} from '../../utils/helpers';
 
 let window = Dimensions.get('window');
@@ -13,6 +14,7 @@ export default class MemoryItem extends React.Component {
 				{this.props.image !== null ? (
 					<View style={styles.imagecomponent}>
 						<Image
+							width={window.width - 70}
 							style={styles.memoryimage}
 							source={{
 								isStatic: true,
@@ -114,10 +116,8 @@ const styles = StyleSheet.create({
 		marginTop: 10,
 	},
 	memoryimage: {
-		width: window.width - 70,
 		marginTop: 10,
 		marginBottom: 10,
-		height: 150,
 		borderRadius: 10,
 	},
 	imagecomponent: {

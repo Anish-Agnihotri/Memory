@@ -28,6 +28,13 @@ Post-launch:
 11. Fix haptic feedback overdo emotions (kudos Amey)
 12. Fix placeholder date (for days !== today) [DONE]
 13. MAKE BETTER WEBSITE w/ PROPER DOMAIN
+14. Calendar bar swipeable (and better icons)
 
 Pre-publish runthroughs:
 1. Change build vers settings + XCode
+
+Version 1.0.1 build 1
+12. Fix placeholder date [DONE]
+16. Calendar bar swipeable (and better icons)
+1. Diary items - deleting items
+1. Diary items - Fix image cropping [DONE]
