@@ -13,7 +13,7 @@ Post-launch:
 	- Additional entries (like an actual diary)
 	- Pull metadata from photos
 	- Hide emotions on scroll
-	- Fix image cropping
+	- Fix image cropping [DONE]
 3. Settings
 	- Custom color themes
 	- Export options
@@ -35,6 +35,6 @@ Pre-publish runthroughs:
 
 Version 1.0.1 build 1
 12. Fix placeholder date [DONE]
-16. Calendar bar swipeable (and better icons)
 1. Diary items - deleting items
 1. Diary items - Fix image cropping [DONE]
++ start code clean up and refactoring

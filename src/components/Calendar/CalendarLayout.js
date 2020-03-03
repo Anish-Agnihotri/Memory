@@ -1,6 +1,6 @@
 import React from 'react';
 import CalendarStrip from 'react-native-calendar-strip';
-import {View, Text, ScrollView, StyleSheet} from 'react-native';
+import {View, ScrollView, StyleSheet} from 'react-native';
 import {returnOnlyMemoryDates} from '../../models/actions';
 
 import TodayStats from './Main/TodayStats';

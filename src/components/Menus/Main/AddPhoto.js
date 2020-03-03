@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-	View,
-	Dimensions,
-	Image,
-	TouchableOpacity,
-	Text,
-	StyleSheet,
-} from 'react-native';
+import {View, Image, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 
 export default class AddPhoto extends React.Component {
@@ -24,8 +17,6 @@ export default class AddPhoto extends React.Component {
 			title: 'Select memory image',
 			cameraType: 'back',
 			mediaType: 'photo',
-			maxWidth: Dimensions.get('window').width - 70,
-			maxHeight: 150,
 			allowsEditing: true,
 			storageOptions: {
 				skipBackup: true,
