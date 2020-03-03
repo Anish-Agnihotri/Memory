@@ -1,7 +1,60 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import moment from 'moment';
+
+const filterOptionsDay = {
+	sameDay: '[today]',
+	nextDay: '[tomorrow]',
+	lastDay: '[yesterday]',
+	lastWeek: 'MMM Do',
+	nextWeek: 'MMM Do',
+	sameElse: 'MMM Do',
+};
 
 export default class Placeholder extends React.Component {
+	constructor() {
+		super();
+
+		this.state = {
+			returnedString: '',
+		};
+	}
+	setDateText = (date, type) => {
+		let returnedString = '';
+		let sentDate = moment(date);
+
+		if (type === 'day') {
+			returnedString = sentDate.calendar(null, filterOptionsDay);
+		}
+
+		if (type === 'week' && sentDate.isSame(moment(), 'isoWeek')) {
+			returnedString = 'this week';
+		} else if (type === 'week') {
+			let beginDay = moment(date)
+				.startOf('isoWeek')
+				.format('Do');
+			let finishDay = moment(date)
+				.startOf('isoWeek')
+				.add(6, 'day')
+				.format('Do');
+			returnedString = beginDay + ' to ' + finishDay;
+		}
+
+		// last month, next month, this month, full month
+		if (type === 'month' && sentDate.isSame(moment(), 'month')) {
+			returnedString = 'this month';
+		} else if (type === 'month') {
+			returnedString = sentDate.format('MMMM');
+		}
+
+		this.setState({returnedString: returnedString});
+	};
+	componentDidMount() {
+		this.setDateText(this.props.date, this.props.type);
+	}
+	UNSAFE_componentWillReceiveProps(props) {
+		this.setDateText(props.date, props.type);
+	}
 	render() {
 		return (
 			<View style={styles.placeholderview}>
@@ -11,7 +64,7 @@ export default class Placeholder extends React.Component {
 					</Text>
 					<View style={styles.headercolorparent}>
 						<Text style={styles.headercolor}>
-							{this.props.string}
+							{this.state.returnedString}
 						</Text>
 					</View>
 				</View>

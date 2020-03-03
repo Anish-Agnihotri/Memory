@@ -64,7 +64,7 @@ export default class WeeklyStats extends React.Component {
 				</Text>
 				<View style={styles.statparent}>
 					{this.state.empty ? (
-						<Placeholder string="this week" />
+						<Placeholder type="week" date={this.props.date} />
 					) : (
 						<>
 							<View style={styles.legend}>

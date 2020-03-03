@@ -64,7 +64,7 @@ export default class TodayStats extends React.Component {
 				</Text>
 				<View style={styles.statparent}>
 					{this.state.empty ? (
-						<Placeholder string="today" />
+						<Placeholder type="day" date={this.props.date} />
 					) : (
 						<TodayEmotionChart
 							emotionCount={this.state.emotionCount}
