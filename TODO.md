@@ -29,6 +29,7 @@ Post-launch:
 12. Fix placeholder date (for days !== today) [DONE]
 13. MAKE BETTER WEBSITE w/ PROPER DOMAIN
 14. Calendar bar swipeable (and better icons)
+15. analytics
 
 Pre-publish runthroughs:
 1. Change build vers settings + XCode

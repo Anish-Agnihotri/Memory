@@ -95,7 +95,6 @@ export function returnMemoryPositiveOrNegative(startDate, endDate) {
 	return {emotionCountPositive, emotionCountNegative, emotionCountNeutral};
 }
 
-// TODO:
 export function deleteMemory(id) {
 	memory_storage.write(() => {
 		var object = memory_storage.objectForPrimaryKey('Memory', id);
