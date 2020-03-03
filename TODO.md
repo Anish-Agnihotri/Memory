@@ -24,6 +24,7 @@ Post-launch:
 7. Rate this app pop-up
 8. Add animations
 9. Heavy optimization
+	9.1 TODO: HIGH PRIORITY: Fix massive rerendering of FlatList
 10. Highlight which emotions are positive/negative/neutral (kudos Amey) + add more emotions
 11. Fix haptic feedback overdo emotions (kudos Amey)
 12. Fix placeholder date (for days !== today) [DONE]

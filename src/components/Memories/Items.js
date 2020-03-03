@@ -16,12 +16,6 @@ import {deleteMemory} from '../../models/actions';
 let window = Dimensions.get('window');
 import trash from '../../assets/icons/trash.png';
 
-/*
-1. If one open, all else close.
-2. On scroll, all close.
-3. Equal height
-*/
-
 export default class MemoryItem extends React.Component {
 	constructor() {
 		super();
@@ -33,8 +27,7 @@ export default class MemoryItem extends React.Component {
 	};
 	deleteAndClose = () => {
 		deleteMemory(this.props.id);
-		// TODO: Refresh flatlist on memory deletion
-		// TODO: close on cancel
+		this.props.runRefresh();
 	};
 	deleteAll = () => {
 		Alert.alert(
@@ -56,8 +49,8 @@ export default class MemoryItem extends React.Component {
 	};
 	renderLeftActions = (progress, dragX) => {
 		const trans = dragX.interpolate({
-			inputRange: [0, 50, 100, 101],
-			outputRange: [-20, 0, 0, 1],
+			inputRange: [0, 10, 20, 40],
+			outputRange: [0, 2, 4, 6],
 		});
 		const opac = dragX.interpolate({
 			inputRange: [0, 10, 20, 30],
@@ -77,10 +70,21 @@ export default class MemoryItem extends React.Component {
 			</TouchableOpacity>
 		);
 	};
+	UNSAFE_componentWillReceiveProps(props) {
+		if (props.scrolling) {
+			this.closeSwipeable();
+		}
+		if (props.currentMenu !== this.props.id) {
+			this.closeSwipeable();
+		}
+	}
 	render() {
 		return (
 			<Swipeable
 				ref={this.swipeable}
+				onSwipeableLeftWillOpen={() =>
+					this.props.updateCurrentMenu(this.props.id)
+				}
 				renderLeftActions={this.renderLeftActions}
 				overshootLeft={false}
 				overshootFriction={8}>

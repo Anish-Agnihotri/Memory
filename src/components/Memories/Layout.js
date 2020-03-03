@@ -15,10 +15,20 @@ export default class MemoryLayout extends React.Component {
 			diaryItems: [],
 			refreshing: true,
 			memoryToday: false,
+			scrolling: false,
+			currentMenu: 0,
 		};
 
 		this.flatList = React.createRef();
 	}
+
+	updateCurrentMenu = value => {
+		this.setState({currentMenu: value});
+	};
+
+	updateScrollingStatus = isScrolling => {
+		this.setState({scrolling: isScrolling ? true : false});
+	};
 
 	updateDiaryItems = () => {
 		var value = returnMemories(this.props.memories);
@@ -45,6 +55,24 @@ export default class MemoryLayout extends React.Component {
 	UNSAFE_componentWillReceiveProps() {
 		this.updateDiaryItems();
 	}
+
+	renderItem = ({item}) => (
+		<MemoryItem
+			id={item.id}
+			date={memoryDateFormat(item.date)}
+			title={item.title}
+			image={item.image}
+			entry={item.entry}
+			emotion={returnEmotionInfo(item.emotion)}
+			isSpecial={item.isSpecial}
+			isMemoryLayout={this.props.memories}
+			runRefresh={this.updateDiaryItems}
+			scrolling={this.state.scrolling}
+			updateCurrentMenu={this.updateCurrentMenu}
+			currentMenu={this.state.currentMenu}
+		/>
+	);
+
 	render() {
 		return (
 			<FlatList
@@ -70,19 +98,7 @@ export default class MemoryLayout extends React.Component {
 				ListEmptyComponent={
 					<Placeholder isMemoriesPage={this.props.memories} />
 				}
-				renderItem={({item}) => (
-					<MemoryItem
-						id={item.id}
-						date={memoryDateFormat(item.date)}
-						title={item.title}
-						image={item.image}
-						entry={item.entry}
-						emotion={returnEmotionInfo(item.emotion)}
-						isSpecial={item.isSpecial}
-						isMemoryLayout={this.props.memories}
-						runRefresh={this.updateDiaryItems}
-					/>
-				)}
+				renderItem={this.renderItem}
 				keyExtractor={item => item.id.toString()}
 			/>
 		);
