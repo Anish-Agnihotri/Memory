@@ -2,6 +2,7 @@ import React from 'react';
 import {View, StyleSheet, KeyboardAvoidingView} from 'react-native';
 import moment from 'moment';
 
+// Sub-sections
 import MemoryHeader from './Main/MemoryHeader';
 import TitleMemory from './Main/TitleMemory';
 import DescribeMemory from './Main/DescribeMemory';
@@ -11,6 +12,7 @@ import MenuButton from '../Buttons/MenuButton';
 import EmotionHeader from './Main/EmotionHeader';
 import EmotionSelection from './Main/EmotionSelection';
 
+// Add Memory Realm db action
 import {addMemory} from '../../models/actions';
 
 export default class MainMenu extends React.Component {
@@ -28,38 +30,49 @@ export default class MainMenu extends React.Component {
 			processActive: false,
 		};
 
-		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this); // Using bind because async
 	}
 	titleUpdate = value => {
+		// Update Memory title
 		this.setState({title: value});
 	};
 	entryUpdate = value => {
+		// Update entry title
 		this.setState({entry: value});
 	};
 	toggleSpecial = value => {
+		// Toggle if diary entry classifies as a Memory
 		this.setState({isSpecial: value});
 	};
 	handleDateChange = value => {
+		// Handle date selection
 		this.setState({date: value});
 	};
 	handleImagePathChange = value => {
+		// Handle image path (documents)
 		this.setState({image: value});
 	};
 	changeShown = () => {
+		// Handle button states
 		this.setState({mainShown: false});
 	};
 	updateProcessActive = () => {
+		// Handle button states
 		this.setState(previous => ({processActive: !previous.processActive}));
 	};
 	handleEmotionChange = value => {
+		// Array logic to select emotions
 		if (this.state.emotion.includes(value)) {
+			// Filter for emotion, update array
 			var array = this.state.emotion.filter(val => val !== value);
 			this.setState({emotion: array});
 		} else {
+			// Else, set array equal to new value
 			this.setState({emotion: [...this.state.emotion, ...[value]]});
 		}
 	};
 	async handleSubmit() {
+		// Create new memory with objects in state memory
 		addMemory(
 			this.state.title,
 			this.state.date,
@@ -68,17 +81,21 @@ export default class MainMenu extends React.Component {
 			this.state.isSpecial,
 			this.state.emotion,
 		);
+		// Toggle a global refresh of FlatList
 		this.props.toggleGlobalRefresh();
+		// Close the modal
 		this.props.toggleModal();
 	}
 	render() {
 		return (
+			// Let keyboard push menuview up when shown
 			<KeyboardAvoidingView
 				behavior="position"
 				keyboardVerticalOffset={10}
 				enabled>
 				<View style={styles.menuview}>
 					{this.state.mainShown ? (
+						// If modal page 1:
 						<>
 							<MemoryHeader
 								date={this.state.date}
@@ -102,6 +119,7 @@ export default class MainMenu extends React.Component {
 								onToggle={this.toggleSpecial}
 							/>
 							{this.state.title === '' ? (
+								// If title is entered, update button state
 								<MenuButton
 									text="Continue"
 									onPress={this.changeShown}
@@ -138,6 +156,7 @@ export default class MainMenu extends React.Component {
 								emotionChange={this.handleEmotionChange}
 							/>
 							{this.state.emotion.length !== 0 ? (
+								// Update button state. Reject if emotions < 1
 								<MenuButton
 									text={`Create with ${
 										this.state.emotion.length

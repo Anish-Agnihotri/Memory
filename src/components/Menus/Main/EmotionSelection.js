@@ -8,12 +8,14 @@ export default class EmotionSelection extends React.Component {
 			<View>
 				<View style={styles.emotionview}>
 					{emotions.map(data => {
+						// Map emotions from utils to emotion items
 						return (
 							<Emotion
 								key={data.id}
 								id={data.id}
 								emotionName={data.emotion}
 								emoji={data.emoji}
+								// On press, map to parent (MainMenu) array
 								onPress={() =>
 									this.props.emotionChange(data.id)
 								}
@@ -45,6 +47,7 @@ class Emotion extends React.Component {
 		return (
 			<TouchableOpacity
 				onPress={this.handlePress}
+				// Handle border color change on toggle click based on local component state
 				style={[
 					styles.emotionbutton,
 					[

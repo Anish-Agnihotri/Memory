@@ -1,6 +1,8 @@
 import React from 'react';
 import {Image, Text, StyleSheet} from 'react-native';
 import RoundedButton from '../../Buttons/RoundedButton';
+
+// Import navigation ref from utils
 import * as RootNavigation from '../../../utils/navigation';
 
 import legal from '../../../assets/icons/legal.png';
@@ -17,6 +19,7 @@ export default class Legal extends React.Component {
 				</Text>
 				<RoundedButton
 					text="Privacy Policy"
+					// Use global navigation ref to change modal views
 					whenPressed={() => RootNavigation.navigate('Legal')}
 				/>
 			</>

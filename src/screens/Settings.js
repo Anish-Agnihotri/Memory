@@ -1,11 +1,11 @@
 import React from 'react';
-import {View, Text, ScrollView, StyleSheet} from 'react-native';
+import {View, ScrollView, StyleSheet} from 'react-native';
 
-import SettingsHeader from '../components/Settings/SettingsHeader';
-import SettingsSection from '../components/Settings/SettingsSection';
+import SettingsHeader from '../components/Settings/SettingsHeader'; // Modal header
+import SettingsSection from '../components/Settings/SettingsSection'; // Settings content container
 
+// Settings sections
 import GetSupport from '../components/Settings/Main/GetSupport';
-// import ExportData from '../components/Settings/Main/ExportData';
 import Legal from '../components/Settings/Main/Legal';
 import MadeBy from '../components/Settings/Main/MadeBy';
 import DeleteAll from '../components/Settings/Main/DeleteAll';
@@ -17,6 +17,7 @@ export default class Settings extends React.Component {
 			<GetSupport />,
 			<MadeBy />,
 			<Legal />,
+			// Pass globalRefresh prop to update FlatList on button click
 			<DeleteAll toggleGlobalRefresh={this.props.toggleGlobalRefresh} />,
 			<VersionData />,
 		];
@@ -30,6 +31,7 @@ export default class Settings extends React.Component {
 				/>
 				<ScrollView style={styles.marginfix}>
 					{items.map((data, idx) => {
+						// For each item in items, render a settings item
 						return (
 							<SettingsSection key={idx}>{data}</SettingsSection>
 						);

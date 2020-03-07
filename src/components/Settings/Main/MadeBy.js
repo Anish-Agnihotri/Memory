@@ -1,6 +1,7 @@
 import React from 'react';
 import {Image, Text, StyleSheet} from 'react-native';
 
+// Hey ma, it's me!
 import me from '../../../assets/images/me.png';
 
 export default class MadeBy extends React.Component {

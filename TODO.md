@@ -9,10 +9,8 @@
 Post-launch: 
 1. Diary
 	- Editing items
-	- Deleting items
 	- Additional entries (like an actual diary)
 	- Pull metadata from photos
-	- Hide emotions on scroll
 3. Settings
 	- Custom color themes
 	- Export options
@@ -32,6 +30,7 @@ Version 1.0.2 build 1
 14. Better calendar bar icons/padding
 8. Add initial animations
 7. Rate this app pop up
+~. Refactor index.js into navigation folder
 ~. Static asset filesize optimization
 
 Version 1.0.3 build 1

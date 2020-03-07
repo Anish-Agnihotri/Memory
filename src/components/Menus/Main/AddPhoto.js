@@ -17,19 +17,19 @@ export default class AddPhoto extends React.Component {
 			title: 'Select memory image',
 			cameraType: 'back',
 			mediaType: 'photo',
-			allowsEditing: true,
+			allowsEditing: true, // Enable cropping/resizing
 			storageOptions: {
-				skipBackup: true,
+				skipBackup: true, // Prevent addition to iCloud backup
 				path: 'images',
 			},
 		};
 		ImagePicker.showImagePicker(options, response => {
 			if (response.didCancel || response.error) {
-				this.props.updateProcessActive();
+				this.props.updateProcessActive(); // Handle modal continue button state
 			} else if (!response.didCancel && !response.error) {
 				let source = {uri: response.uri};
 				this.props.addImage(source);
-				this.props.updateProcessActive();
+				this.props.updateProcessActive(); // Handle modal continue button state pt. 2
 			}
 		});
 	};

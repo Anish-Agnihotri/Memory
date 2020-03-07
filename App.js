@@ -172,7 +172,9 @@ class App extends React.Component {
 									/>
 								)}
 							</RootStack.Screen>
-							<RootStack.Screen name="Settings" options={ModalConfig}>
+							<RootStack.Screen
+								name="Settings"
+								options={ModalConfig}>
 								{() => (
 									<ModalStackScreen
 										toggleGlobalRefresh={

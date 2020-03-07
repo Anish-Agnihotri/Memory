@@ -26,6 +26,7 @@ export default class MemoryHeader extends React.Component {
 	};
 	checkDarkMode = () => {
 		var colorScheme = Appearance.getColorScheme();
+		// Dynamically change color picker theme based on current device colorScheme
 		if (colorScheme === 'dark') {
 			this.setState({isDarkMode: true});
 		} else {
@@ -50,6 +51,7 @@ export default class MemoryHeader extends React.Component {
 					<Text style={styles.headerText}>?</Text>
 				</View>
 				<DateTimePickerModal
+					// Prevent picking a date in the future
 					isVisible={this.state.isDatePickerVisible}
 					mode="date"
 					date={this.props.date}

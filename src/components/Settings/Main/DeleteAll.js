@@ -2,6 +2,8 @@ import React from 'react';
 import {Image, Text, StyleSheet, Alert} from 'react-native';
 import RoundedButton from '../../Buttons/RoundedButton';
 import {deleteAllMemories} from '../../../models/actions';
+
+// Global navigation ref imported from utils
 import * as RootNavigation from '../../../utils/navigation';
 
 import deleteicon from '../../../assets/icons/delete.png';
@@ -9,7 +11,9 @@ import deleteicon from '../../../assets/icons/delete.png';
 export default class DeleteAll extends React.Component {
 	deleteAndClose = () => {
 		deleteAllMemories();
+		// Toggle FlatList update on button click
 		this.props.toggleGlobalRefresh();
+		// Close settings modal and re-navigate to Memories ViewController
 		RootNavigation.navigate('Memories');
 	};
 	deleteAll = () => {

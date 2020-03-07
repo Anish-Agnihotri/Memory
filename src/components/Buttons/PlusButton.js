@@ -1,3 +1,4 @@
+// TODO: Refactor this complete page. This was the first page written in app and it needs a redo
 // Basic imports
 import React from 'react';
 import {
@@ -27,6 +28,7 @@ export default class PlusButton extends React.Component {
 			bottomSecondValue: new Animated.Value(0),
 		};
 
+		// FIXME: Why are these binded?
 		this.toggleModal = this.toggleModal.bind(this);
 		this.togglePressed = this.togglePressed.bind(this);
 		this.handleAnimation = this.handleAnimation.bind(this);

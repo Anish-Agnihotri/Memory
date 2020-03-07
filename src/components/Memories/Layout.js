@@ -18,19 +18,25 @@ export default class MemoryLayout extends React.Component {
 		};
 	}
 
+	// Delete functionality to refresh state from child.
 	updateGlobalRefresh = state => {
 		this.setState({globalRefresh: state});
 	};
 
 	updateDiaryItems = () => {
+		// Return memories as value
 		var value = returnMemories(this.props.memories);
 
+		// Initially set today item to false
 		var showMemoryTodayItem = false;
 		if (
 			value.length >= 1 &&
 			memoryToday() === false &&
 			this.props.memories === false
 		) {
+			// If there are more than 0 memories
+			// If there are no memories today
+			// If this is the Diary page, not memories
 			showMemoryTodayItem = true;
 		}
 
@@ -43,10 +49,13 @@ export default class MemoryLayout extends React.Component {
 
 	componentDidMount() {
 		this.updateDiaryItems();
+		// Update FlatList on load
 		this.updateGlobalRefresh(this.props.globalLayoutRefresh);
 	}
 
 	UNSAFE_componentWillReceiveProps(props) {
+		// Performance: Only update FlatList if parent props have changed
+		// Not just, when all props have been received
 		if (props.globalLayoutRefresh !== this.state.globalRefresh) {
 			this.updateDiaryItems();
 			this.updateGlobalRefresh(props.globalLayoutRefresh);

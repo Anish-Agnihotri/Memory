@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, StyleSheet} from 'react-native';
 
+// Setup hard-coded version number, synced with XCode.
 export default class VersionData extends React.Component {
 	render() {
 		return (

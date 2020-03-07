@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 
+// Container styling for settings items
 export default class SettingsSection extends React.Component {
 	render() {
 		return (

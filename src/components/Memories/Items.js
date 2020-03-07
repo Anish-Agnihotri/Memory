@@ -16,6 +16,7 @@ import trash from '../../assets/icons/trash.png';
 export default class MemoryItem extends React.Component {
 	deleteAndRefresh = () => {
 		deleteMemory(this.props.id);
+		// Run prop refresh on item delete to re-render FlatList
 		this.props.runRefresh();
 	};
 
@@ -37,6 +38,7 @@ export default class MemoryItem extends React.Component {
 		);
 	};
 
+	// Similar to React.PureComponent. Prevent mass re-rendering.
 	shouldComponentUpdate() {
 		return false;
 	}
@@ -45,6 +47,7 @@ export default class MemoryItem extends React.Component {
 		return (
 			<View style={styles.memoryitem}>
 				{!this.props.isMemoryLayout ? (
+					// If diary page, show delete options
 					<TouchableOpacity
 						style={styles.trash}
 						onPress={this.deleteThisMemory}>
@@ -54,22 +57,25 @@ export default class MemoryItem extends React.Component {
 				<Text style={styles.memorydate}>{this.props.date}</Text>
 				<Text style={styles.memorytitle}>{this.props.title}</Text>
 				{this.props.image !== null ? (
+					// Show image if one is present in entry
 					<View style={styles.imagecomponent}>
 						<Image
-							width={Dimensions.get('window').width - 70}
+							width={Dimensions.get('window').width - 70} // Dynamic sizing
 							style={styles.memoryimage}
 							source={{
 								isStatic: true,
-								uri: `${imagePath(this.props.image)}`,
+								uri: `${imagePath(this.props.image)}`, // Calculate image path in documents
 							}}
 						/>
 					</View>
 				) : null}
 				{this.props.entry !== '' ? (
+					// Show entry if there is one
 					<Text style={styles.memoryentry}>{this.props.entry}</Text>
 				) : null}
 				<View style={styles.wrapfix}>
 					{this.props.isSpecial ? (
+						// If emotion is special, add a special emotion tag
 						<View style={styles.specialemotion}>
 							<Text style={styles.specialemotiontext}>
 								⭐ Special
@@ -77,6 +83,7 @@ export default class MemoryItem extends React.Component {
 						</View>
 					) : null}
 					{this.props.emotion.map((data, idx) => {
+						// Else, render all else generic emotion tags
 						return (
 							<View key={idx} style={styles.memoryemotion}>
 								<Text style={styles.memoryemotiontext}>

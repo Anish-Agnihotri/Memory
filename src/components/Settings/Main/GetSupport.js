@@ -6,6 +6,7 @@ import support from '../../../assets/icons/support.png';
 
 export default class GetSupport extends React.Component {
 	onPressFunc = () => {
+		// ? to set automatic subject.
 		Linking.openURL(
 			'mailto:contact@anishagnihotri.com?subject=Support | Memory',
 		);

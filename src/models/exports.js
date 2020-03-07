@@ -1,6 +1,7 @@
 import {memory_storage} from './memory_service';
 import RNFS from 'react-native-fs';
 
+// WIP: Export to JSON
 export async function exportToJSON() {
 	let data = memory_storage.objects('Memory').sorted('date', true);
 

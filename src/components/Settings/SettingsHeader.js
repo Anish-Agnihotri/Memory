@@ -22,11 +22,18 @@ export default class SettingsHeader extends React.Component {
 					}>
 					<View>
 						{this.props.closeAll ? (
-							<Text style={styles.settingsheaderbuttontext}>{this.props.buttonText}</Text>
+							<Text style={styles.settingsheaderbuttontext}>
+								{this.props.buttonText}
+							</Text>
 						) : (
 							<View style={styles.buttonview}>
-								<Image style={styles.buttonimage} source={backButton} />
-								<Text style={styles.settingsheaderbuttontext}>{this.props.buttonText}</Text>
+								<Image
+									style={styles.buttonimage}
+									source={backButton}
+								/>
+								<Text style={styles.settingsheaderbuttontext}>
+									{this.props.buttonText}
+								</Text>
 							</View>
 						)}
 					</View>

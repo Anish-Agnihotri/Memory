@@ -1,3 +1,4 @@
+// Emoji directory
 export const emotions = [
 	{
 		id: 1,
