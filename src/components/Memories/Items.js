@@ -1,15 +1,56 @@
 import React from 'react';
-import {View, Text, StyleSheet, Dimensions} from 'react-native';
+import {
+	View,
+	Text,
+	StyleSheet,
+	Dimensions,
+	TouchableOpacity,
+	Alert,
+} from 'react-native';
 import Image from 'react-native-scalable-image';
 import {imagePath} from '../../utils/helpers';
+import {deleteMemory} from '../../models/actions';
+
+import trash from '../../assets/icons/trash.png';
 
 export default class MemoryItem extends React.Component {
+	deleteAndRefresh = () => {
+		deleteMemory(this.props.id);
+		this.props.runRefresh();
+	};
+
+	deleteThisMemory = () => {
+		Alert.alert(
+			'Delete memory',
+			'Are you sure you want to delete this memory?',
+			[
+				{
+					text: 'Cancel',
+					style: 'cancel',
+				},
+				{
+					text: 'Delete',
+					style: 'destructive',
+					onPress: () => this.deleteAndRefresh(),
+				},
+			],
+		);
+	};
+
 	shouldComponentUpdate() {
 		return false;
 	}
+
 	render() {
 		return (
 			<View style={styles.memoryitem}>
+				{!this.props.isMemoryLayout ? (
+					<TouchableOpacity
+						style={styles.trash}
+						onPress={this.deleteThisMemory}>
+						<Image source={trash} width={15} />
+					</TouchableOpacity>
+				) : null}
 				<Text style={styles.memorydate}>{this.props.date}</Text>
 				<Text style={styles.memorytitle}>{this.props.title}</Text>
 				{this.props.image !== null ? (
@@ -129,5 +170,10 @@ const styles = StyleSheet.create({
 		},
 		shadowOpacity: 0.2,
 		shadowRadius: 4.84,
+	},
+	trash: {
+		position: 'absolute',
+		right: 0,
+		padding: 15,
 	},
 });

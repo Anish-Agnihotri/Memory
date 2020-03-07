@@ -55,6 +55,7 @@ export default class MemoryLayout extends React.Component {
 
 	renderItem = ({item}) => (
 		<MemoryItem
+			id={item.id}
 			date={memoryDateFormat(item.date)}
 			title={item.title}
 			image={item.image}
@@ -62,6 +63,7 @@ export default class MemoryLayout extends React.Component {
 			emotion={returnEmotionInfo(item.emotion)}
 			isSpecial={item.isSpecial}
 			isMemoryLayout={this.props.memories}
+			runRefresh={this.updateDiaryItems}
 		/>
 	);
 

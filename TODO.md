@@ -13,7 +13,6 @@ Post-launch:
 	- Additional entries (like an actual diary)
 	- Pull metadata from photos
 	- Hide emotions on scroll
-	- Fix image cropping [DONE]
 3. Settings
 	- Custom color themes
 	- Export options
@@ -21,17 +20,10 @@ Post-launch:
 	- HEAVY Documentation
 5. First open process
 6. Push notifications
-7. Rate this app pop-up
-8. Add animations
-9. Heavy optimization
-	9.1 TODO: HIGH PRIORITY: Fix massive rerendering of FlatList
 10. Highlight which emotions are positive/negative/neutral (kudos Amey) + add more emotions
-11. Fix haptic feedback overdo emotions (kudos Amey)
-12. Fix placeholder date (for days !== today) [DONE]
 13. MAKE BETTER WEBSITE w/ PROPER DOMAIN
 14. Calendar bar swipeable (and better icons)
 15. analytics
-16. settings button padding (amey)
 
 Pre-publish runthroughs:
 1. Change build vers settings + XCode
@@ -41,10 +33,19 @@ Version 1.0.1 build 1
 1. Diary items - Fix image cropping [DONE]
 11. Haptic feedback overdo emotions [DONE]
 1. Diary items - deleting items
+9.1. Fix massive rerendering of Flatlist [DONE]
+~. Static asset filesize optimization
 
+Version 1.0.2 build 1
 14. Better calendar bar icons/padding
 8. Add initial animations
 7. Rate this app pop up
 
-+ start code clean up and refactoring
-9.1. Fix massive rerendering of Flatlist
+Version 1.0.3 build 1
+1. Add animations
+2. Export options
+3. Pull metadata from photos
+
+Version 1.0.4 build 1
+1. Editing items
+2. First open process
