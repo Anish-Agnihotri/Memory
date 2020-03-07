@@ -1,11 +1,6 @@
 import React from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import {emotions} from '../../../utils/emotions';
-import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
-
-const options = {
-	enableVibrateFallback: true,
-};
 
 export default class EmotionSelection extends React.Component {
 	render() {
@@ -44,9 +39,6 @@ class Emotion extends React.Component {
 	};
 	handlePress = () => {
 		this.toggleClicked();
-		if (this.state.clicked === false) {
-			ReactNativeHapticFeedback.trigger('selection', options);
-		}
 		this.props.onPress();
 	};
 	render() {

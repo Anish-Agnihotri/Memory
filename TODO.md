@@ -31,12 +31,20 @@ Post-launch:
 13. MAKE BETTER WEBSITE w/ PROPER DOMAIN
 14. Calendar bar swipeable (and better icons)
 15. analytics
+16. settings button padding (amey)
 
 Pre-publish runthroughs:
 1. Change build vers settings + XCode
 
 Version 1.0.1 build 1
 12. Fix placeholder date [DONE]
-1. Diary items - deleting items
 1. Diary items - Fix image cropping [DONE]
+11. Haptic feedback overdo emotions [DONE]
+1. Diary items - deleting items
+
+14. Better calendar bar icons/padding
+8. Add initial animations
+7. Rate this app pop up
+
 + start code clean up and refactoring
+9.1. Fix massive rerendering of Flatlist

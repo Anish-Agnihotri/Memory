@@ -15,19 +15,11 @@ export default class MemoryLayout extends React.Component {
 			diaryItems: [],
 			refreshing: true,
 			memoryToday: false,
-			scrolling: false,
-			currentMenu: 0,
 		};
-
-		this.flatList = React.createRef();
 	}
 
-	updateCurrentMenu = value => {
-		this.setState({currentMenu: value});
-	};
-
-	updateScrollingStatus = isScrolling => {
-		this.setState({scrolling: isScrolling ? true : false});
+	updateGlobalRefresh = state => {
+		this.setState({globalRefresh: state});
 	};
 
 	updateDiaryItems = () => {
@@ -51,14 +43,18 @@ export default class MemoryLayout extends React.Component {
 
 	componentDidMount() {
 		this.updateDiaryItems();
+		this.updateGlobalRefresh(this.props.globalLayoutRefresh);
 	}
-	UNSAFE_componentWillReceiveProps() {
-		this.updateDiaryItems();
+
+	UNSAFE_componentWillReceiveProps(props) {
+		if (props.globalLayoutRefresh !== this.state.globalRefresh) {
+			this.updateDiaryItems();
+			this.updateGlobalRefresh(props.globalLayoutRefresh);
+		}
 	}
 
 	renderItem = ({item}) => (
 		<MemoryItem
-			id={item.id}
 			date={memoryDateFormat(item.date)}
 			title={item.title}
 			image={item.image}
@@ -66,10 +62,6 @@ export default class MemoryLayout extends React.Component {
 			emotion={returnEmotionInfo(item.emotion)}
 			isSpecial={item.isSpecial}
 			isMemoryLayout={this.props.memories}
-			runRefresh={this.updateDiaryItems}
-			scrolling={this.state.scrolling}
-			updateCurrentMenu={this.updateCurrentMenu}
-			currentMenu={this.state.currentMenu}
 		/>
 	);
 
@@ -100,6 +92,8 @@ export default class MemoryLayout extends React.Component {
 				}
 				renderItem={this.renderItem}
 				keyExtractor={item => item.id.toString()}
+				windowSize={50}
+				legacyImplementation={true}
 			/>
 		);
 	}
