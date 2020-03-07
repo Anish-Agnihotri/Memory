@@ -1,5 +1,7 @@
 <p align="center"><img src="https://i.imgur.com/nrP2uza.png" alt="Memory header"/></p>
-<p align="center"><strong>:warning: Warning: Memory is currently a Work-In-Progress (WIP), as a hobby project of <a href="https://github.com/anish-agnihotri">@anish-agnihotri</a>. Until first release to App Store, project may not be buildable or feature-complete.</strong></p>
+<p align="center"><strong>:warning: Warning: Memory is currently a Work-In-Progress (WIP), as a hobby project of <a href="https://github.com/anish-agnihotri">@anish-agnihotri</a>.</strong></p>
+<p align="center"><strong>You may download the latest release-ready version from the App Store:</strong></p>
+<p align="center"><a href="https://apps.apple.com/ca/app/memory-mood-tracker-diary/id1500958805"><img src="https://i.ya-webdesign.com/images/app-store-download-button-png.png" width="150"/></a></p>
 
 ## Memory
 Memory is an iOS-first application that lets you add diary entries, track your mood, and most of all, save your favourite memories. The best way to brighten up a bad day is to think back to good times—and memory let's you do **exactly that**.
@@ -11,7 +13,7 @@ It's really simple:
 4. Track your emotions by the day and view statistics.
 
 ## Running Memory
-I'd **highly** recommend waiting until the app is live on the App Store to take it for a spin. If you like living life on edge, though, you can run locally like so:
+I'd **highly** recommend using the App Store release version [here](https://apps.apple.com/ca/app/memory-mood-tracker-diary/id1500958805) to take it for a spin. If you like living life on edge, though, you can run locally like so:
 
 ### Building from source
 1. Run `git clone https://github.com/anish-agnihotri/Memory.git`
