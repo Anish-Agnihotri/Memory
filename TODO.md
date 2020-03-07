@@ -28,18 +28,11 @@ Post-launch:
 Pre-publish runthroughs:
 1. Change build vers settings + XCode
 
-Version 1.0.1 build 1
-12. Fix placeholder date [DONE]
-1. Diary items - Fix image cropping [DONE]
-11. Haptic feedback overdo emotions [DONE]
-1. Diary items - deleting items
-9.1. Fix massive rerendering of Flatlist [DONE]
-~. Static asset filesize optimization
-
 Version 1.0.2 build 1
 14. Better calendar bar icons/padding
 8. Add initial animations
 7. Rate this app pop up
+~. Static asset filesize optimization
 
 Version 1.0.3 build 1
 1. Add animations

@@ -5,7 +5,7 @@ export default class VersionData extends React.Component {
 	render() {
 		return (
 			<>
-				<Text style={styles.descText}>Version 0.0.1 | Build 34</Text>
+				<Text style={styles.descText}>Version 1.0.1 | Build 1</Text>
 			</>
 		);
 	}
