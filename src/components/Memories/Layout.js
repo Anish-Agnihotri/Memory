@@ -86,14 +86,14 @@ export default class MemoryLayout extends React.Component {
 						onRefresh={this.updateDiaryItems}
 					/>
 				}
-				initialNumToRender={5}
 				ListEmptyComponent={
 					<Placeholder isMemoriesPage={this.props.memories} />
 				}
 				renderItem={this.renderItem}
 				keyExtractor={item => item.id.toString()}
-				windowSize={50}
-				legacyImplementation={true}
+				maxToRenderPerBatch={5}
+				initialNumToRender={5}
+				windowSize={6}
 			/>
 		);
 	}
