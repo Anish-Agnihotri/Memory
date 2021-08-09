@@ -2,7 +2,7 @@
 <p align="center"><strong>:warning: Warning: Memory is currently a Work-In-Progress (WIP), as a hobby project of <a href="https://github.com/anish-agnihotri">@anish-agnihotri</a>.</strong></p>
 <p align="center"><strong>You may download the latest release-ready version from the App Store:</strong></p>
 <p align="center"><a href="https://apps.apple.com/ca/app/memory-mood-tracker-diary/id1500958805"><img src="https://i.ya-webdesign.com/images/app-store-download-button-png.png" width="150"/></a></p>
-<p align="center"><a href="https://www.codeasart.herokuapp.com/Anish-Agnihotri/Memory"><img src="https://shields.io/badge/Buy-Code%20As%20Art-purple?logo=ethereum&style=for-the-badge" alt="Buy Code as Art" height="50"></a></p>
+<p align="center"><a href="https://codeasart.herokuapp.com/Anish-Agnihotri/Memory"><img src="https://shields.io/badge/Buy-Code%20As%20Art-purple?logo=ethereum&style=for-the-badge" alt="Buy Code as Art" height="50"></a></p>
 
 
 ## Memory
